@@ -1,21 +1,26 @@
 class PlacesController < ApplicationController
 
-  def index
-    @user = current_user
-    @places = @user.places.all
+  def home
+    authorize Place
   end
 
+  def index
+    @places = policy_scope(Place)
+    @places = @places.where(user: current_user)
+  end
   def show
     @place = Place.find(params[:id])
     @booking = Booking.new
+    authorize @place
   end
 
   def new
     @place = Place.new
+    authorize @place
   end
-
   def create
     @place = current_user.places.build(place_params)
+    authorize @place
     if @place.save
       PlaceMailer.creation_confirmation(@place).deliver_now
       redirect_to places_path
@@ -26,16 +31,21 @@ class PlacesController < ApplicationController
 
   def edit
     @place = Place.find(params[:id])
+    @whitelists = @place.whitelists
+    @whitelist = Whitelist.new
+    authorize @place
   end
 
   def update
     @place = Place.find(params[:id])
+    authorize @place
     @place.update(place_params)
-    redirect_to places_path
+    redirect_to edit_place_path(@place)
   end
 
   def destroy
     @place = Place.find(params[:id])
+    authorize @place
     @place.destroy
   end
 
