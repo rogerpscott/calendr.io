@@ -14,10 +14,13 @@ class PlacesController < ApplicationController
   end
 
   def create
-    @place = Place.new(place_params)
-    @place.user = current_user
-    @place.save
-    redirect_to places_path
+    @place = current_user.places.build(place_params)
+    if @place.save
+      PlaceMailer.creation_confirmation(@place).deliver_now
+      redirect_to places_path
+    else
+      render :new
+    end
   end
 
   def edit
