@@ -1,8 +1,11 @@
 class PlacesController < ApplicationController
 
+  def home
+  end
+
   def index
-    @user = current_user
-    @places = @user.places.all
+    @places = current_user.places
+    @places = policy_scope(Place)
   end
 
   def show
@@ -11,11 +14,13 @@ class PlacesController < ApplicationController
 
   def new
     @place = Place.new
+    authorize @place
   end
 
   def create
     @place = Place.new(place_params)
     @place.user = current_user
+    authorize @place
     @place.save
     redirect_to places_path
   end
