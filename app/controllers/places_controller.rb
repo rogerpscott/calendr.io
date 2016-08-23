@@ -6,9 +6,6 @@ class PlacesController < ApplicationController
   end
   def show
     @place = Place.find(params[:id])
-    @whitelists = @place.whitelists
-    @whitelist = Whitelist.new
-
     @booking = Booking.new
 
   end
@@ -25,12 +22,14 @@ class PlacesController < ApplicationController
 
   def edit
     @place = Place.find(params[:id])
+    @whitelists = @place.whitelists
+    @whitelist = Whitelist.new
   end
 
   def update
     @place = Place.find(params[:id])
     @place.update(place_params)
-    redirect_to places_path
+    redirect_to edit_place_path(@place)
   end
 
   def destroy

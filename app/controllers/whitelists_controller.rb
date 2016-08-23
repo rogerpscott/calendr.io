@@ -10,9 +10,9 @@ class WhitelistsController < ApplicationController
     @whitelist = Whitelist.new(params_whitelist)
     @whitelist.place = @place
     if @whitelist.save
-      redirect_to place_path(@place)
+      redirect_to edit_place_path(@place)
     else
-      render 'places/show'
+      render 'places/edit'
     end
   end
 
@@ -20,7 +20,7 @@ class WhitelistsController < ApplicationController
     @place = Place.find(params[:place_id])
     @whitelist = Whitelist.find(params[:id])
     @whitelist.destroy
-    redirect_to place_path(@place)
+    redirect_to edit_place_path(@place)
   end
 
    def params_whitelist
