@@ -18,11 +18,7 @@ class BookingsController < ApplicationController
     authorize @booking
 
     if @booking.save
-<<<<<<< HEAD
-      redirect_to  bookings_path
-=======
       redirect_to bookings_path
->>>>>>> master
     else
       render 'bookings/edit'
     end
