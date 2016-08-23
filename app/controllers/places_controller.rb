@@ -8,7 +8,6 @@ class PlacesController < ApplicationController
     @places = policy_scope(Place)
     @places = @places.where(user: current_user)
   end
-
   def show
     @place = Place.find(params[:id])
     @booking = Booking.new
@@ -19,7 +18,6 @@ class PlacesController < ApplicationController
     @place = Place.new
     authorize @place
   end
-
   def create
     @place = current_user.places.build(place_params)
     authorize @place
@@ -33,6 +31,8 @@ class PlacesController < ApplicationController
 
   def edit
     @place = Place.find(params[:id])
+    @whitelists = @place.whitelists
+    @whitelist = Whitelist.new
     authorize @place
   end
 
@@ -40,7 +40,7 @@ class PlacesController < ApplicationController
     @place = Place.find(params[:id])
     authorize @place
     @place.update(place_params)
-    redirect_to places_path
+    redirect_to edit_place_path(@place)
   end
 
   def destroy

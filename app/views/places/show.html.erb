@@ -1,11 +1,14 @@
-<h2><%= @place.name %></h2>
-<p><%= @place.address %></p>
-
-<%= simple_form_for [@place, @booking] do |f| %>
-  <ul class="list-unstyled">
-    <li><%= f.input :start_time%></li>
-    <li><%= f.input :end_time%></li>
-    <li><%= f.submit%></li>
-
-  </ul>
-<% end %>
+<div class="container-place">
+  <div>
+    <h2><%= @place.name %></h2>
+    <p><%= @place.address %></p>
+  </div>
+  <div>
+    <h3>Make a booking</h3>
+    <%= simple_form_for [@place, @booking] do |f| %>
+    <%= f.input :start_time %>
+    <%= f.input :end_time %>
+    <%= f.button :submit, class: "btn btn-primary" %>
+    <% end %>
+    </div>
+</div>
