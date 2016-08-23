@@ -1,11 +1,12 @@
 class PlacesController < ApplicationController
 
   def home
+    authorize Place
   end
 
   def index
-    @places = current_user.places
     @places = policy_scope(Place)
+    @places = @places.where(user: current_user)
   end
 
   def show
@@ -27,16 +28,19 @@ class PlacesController < ApplicationController
 
   def edit
     @place = Place.find(params[:id])
+    authorize @place
   end
 
   def update
     @place = Place.find(params[:id])
+    authorize @place
     @place.update(place_params)
     redirect_to places_path
   end
 
   def destroy
     @place = Place.find(params[:id])
+    authorize @place
     @place.destroy
   end
 

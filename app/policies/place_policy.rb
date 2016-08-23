@@ -24,4 +24,8 @@ class PlacePolicy < ApplicationPolicy
   def destroy?
     record.user == user  # Only place creator can update it
   end
+
+  def home?
+    true
+  end
 end
