@@ -16,7 +16,7 @@ class BookingsController < ApplicationController
     @booking.user = @user
 
     if @booking.save
-      redirect_to  edit_place_booking_path(@place, @booking)
+      redirect_to  bookings_path
     else
       render 'bookings/edit'
     end

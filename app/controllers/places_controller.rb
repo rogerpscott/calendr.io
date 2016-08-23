@@ -2,18 +2,18 @@ class PlacesController < ApplicationController
 
   def index
     @user = current_user
-    @places = @user.places.all
+    @places = @user.places
   end
-
   def show
     @place = Place.find(params[:id])
-    @booking = Booking.new
+    @whitelists = @place.whitelists
+    @whitelist = Whitelist.new
+
   end
 
   def new
     @place = Place.new
   end
-
   def create
     @place = Place.new(place_params)
     @place.user = current_user

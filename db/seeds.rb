@@ -32,3 +32,12 @@ booking_petanque = Booking.new(start_time: 13/04/2017, end_time: 13/04/2017)
 booking_petanque.place = place_petanque
 booking_petanque.user = beber
 booking_petanque.save
+
+whitelist1 = Whitelist.new(email: "pedro@live.fr")
+whitelist1.place = place_tennis
+whitelist1.save
+
+whitelist2 = Whitelist.new(email: "toto@live.fr")
+whitelist2.place = place_petanque
+whitelist2.save
+
