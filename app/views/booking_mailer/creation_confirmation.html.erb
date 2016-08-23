@@ -1,0 +1,15 @@
+<h2>Dear <%= @user.first_name %>,</h2>
+
+<p>
+  Your place <b><%= @place.name %></b>
+  received a booking on the <%= @booking.start_time.strftime("%d/%m/%y")%> at <%= @booking.start_time.strftime("%I:%M%p") %> by <%= @booking.user.first_name %> <%= @booking.user.last_name %>
+<br>
+
+  <ul>
+    <li><a href="mailto:<%= @booking.user.email %>">email <%=@booking.user.first_name%></a></li>
+    <li><%= link_to "Check your bookings", bookings_url %></li>
+    <li><%= link_to "Check your places", places_url %></li>
+  </ul>
+
+  The calendr.io team
+</p>

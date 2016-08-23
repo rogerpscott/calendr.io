@@ -16,6 +16,7 @@ class BookingsController < ApplicationController
     @booking.user = @user
 
     if @booking.save
+      BookingMailer.creation_confirmation(@booking).deliver_now
       redirect_to  edit_place_booking_path(@place, @booking)
     else
       render 'bookings/edit'
