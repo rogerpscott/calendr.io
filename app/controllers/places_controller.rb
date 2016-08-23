@@ -11,6 +11,8 @@ class PlacesController < ApplicationController
 
   def show
     @place = Place.find(params[:id])
+    @booking = Booking.new
+    authorize @place
   end
 
   def new
@@ -19,11 +21,14 @@ class PlacesController < ApplicationController
   end
 
   def create
-    @place = Place.new(place_params)
-    @place.user = current_user
+    @place = current_user.places.build(place_params)
     authorize @place
-    @place.save
-    redirect_to places_path
+    if @place.save
+      PlaceMailer.creation_confirmation(@place).deliver_now
+      redirect_to places_path
+    else
+      render :new
+    end
   end
 
   def edit
