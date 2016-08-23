@@ -1,11 +1,9 @@
 <% @bookings.each do |booking| %>
-<%= link_to edit_place_booking_path(booking.place, booking) do %>
  <ul class="list-unstyled text-center">
       <li><%= booking.place.name%></li>
       <li><%= booking.place.address%></li>
       <li> Start : <%= booking.start_time%></li>
       <li> End : <%=booking.end_time%> </li>
-      <p>-----------------------------</p>
+      <%= link_to "Cancel booking", booking_path(booking), class:'btn btn-danger', method: :delete, data: { confirm: "Are you really sure?" } %>
 </ul>
-<% end %>
 <% end %>

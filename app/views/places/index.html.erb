@@ -4,6 +4,7 @@
   <%= link_to "Add a place", new_place_path, class: "btn btn-primary" %>
 </div>
 
+
 <div class="container">
   <div class="row">
     <% @places.each do |place| %>
@@ -13,7 +14,6 @@
             <div class="card-category"><%= place.name %></div>
             <div class="card-description">
                 <h2><%= place.address %></h2>
-                <p>Very cool stuff, useful and smart</p>
             </div>
           </div>
           <%= link_to "edit", edit_place_path(place) %>
