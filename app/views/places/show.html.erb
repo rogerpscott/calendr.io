@@ -1,20 +1,51 @@
-<div class="text-center">
-  <h2><%= @place.name %></h2>
-  <p><%= @place.address %></p>
-  <h3>list des invités</h3>
-  <ul>
-    <% @whitelists.each do |whitelist| %>
-    <li> <%= whitelist.email %>  <%= link_to "delete", place_whitelist_path(@place, whitelist), class:'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you really sure?" } %></li>
-    <% end %>
-  </ul>
-</div>
-<div class="container">
-  <div class="row">
-  <div class="col-xs-12 col-sm-6 col-sm-offset-3 ">
-      <%= simple_form_for [@place, @whitelist] do |f| %>
-      <%= f.input :email %>
-      <%= f.button :submit, class: "btn btn-primary" %>
-      <% end %>
+<div class="wrapper">
+  <div class="container-fluid">
+    <div class="row">
+
+      <div class="col-xs-6">
+        <div>
+          <h2><%= @place.name %></h2>
+          <p><%= @place.address %></p>
+          <% if current_user == @place.user %>
+          <div>
+            <h3>list des invités</h3>
+            <ul>
+              <% @whitelists.each do |whitelist| %>
+              <li> <%= whitelist.email %>  <%= link_to "delete", place_whitelist_path(@place, whitelist), class:'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you really sure?" } %></li>
+              <% end %>
+            </ul>
+            <div class="container">
+              <div class="row">
+              <div class="col-xs-6">
+                  <%= simple_form_for [@place, @whitelist] do |f| %>
+                  <%= f.input :email %>
+                  <%= f.button :submit, class: "btn btn-primary" %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="col-xs-6">
+        <div class="wrapper">
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-12">
+              <h3>Make a booking</h3>
+                <%= simple_form_for [@place, @booking] do |f| %>
+                <%= f.input :start_time %>
+                <%= f.input :end_time %>
+                <%= f.button :submit, class: "btn btn-primary" %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
+

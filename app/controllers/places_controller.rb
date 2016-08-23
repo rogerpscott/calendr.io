@@ -9,6 +9,8 @@ class PlacesController < ApplicationController
     @whitelists = @place.whitelists
     @whitelist = Whitelist.new
 
+    @booking = Booking.new
+
   end
 
   def new
