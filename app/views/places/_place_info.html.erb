@@ -3,6 +3,9 @@
     <ul class="list-unstyled" id="place-description">
       <li><h1><%= place.name %></h1></li>
       <li><%= place.address %></li>
+      <% if @place.photo? %>
+        <%= cl_image_tag @place.photo.path, width: 200, height: 300, crop: :fill %>
+      <% end %>
     </ul>
   </div>
 </div>
