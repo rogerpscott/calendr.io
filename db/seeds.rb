@@ -13,6 +13,7 @@ michou = User.new(first_name: "michel", last_name:"dubois", email: "michou@live.
 michou.save
 
 beber = User.new(first_name: "bertrant", last_name:"depuis",email: "beber@live.fr", password: "beber")
+beber.save
 
 
 place_tennis = Place.new(name: "Le tennis de Polo", address: "11 rue du camping à Vanne")
