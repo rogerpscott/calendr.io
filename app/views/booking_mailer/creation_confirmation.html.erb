@@ -2,7 +2,7 @@
 
 <p>
   Your place <b><%= @place.name %></b>
-  received a booking on the <%= @booking.start_time.strftime("%d/%m/%y")%> at <%= @booking.start_time.strftime("%I:%M%p") %> by <%= @booking.user.first_name %> <%= @booking.user.last_name %>
+  received a booking from <%= @booking.user.first_name %> <%= @booking.user.last_name %> starting on <%= @booking.start_time.strftime("%d/%m/%y")%> at <%= @booking.start_time.strftime("%I:%M%p") %> up until <%= @booking.end_time.strftime("%d/%m/%y")%> at <%= @booking.end_time.strftime("%I:%M%p") %>.
 <br>
 
   <ul>

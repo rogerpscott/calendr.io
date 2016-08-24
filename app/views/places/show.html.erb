@@ -1,14 +1,9 @@
-<div class="container-place">
-  <div>
-    <h2><%= @place.name %></h2>
-    <p><%= @place.address %></p>
-  </div>
-  <div>
-    <h3>Make a booking</h3>
-    <%= simple_form_for [@place, @booking] do |f| %>
-    <%= f.input :start_time %>
-    <%= f.input :end_time %>
-    <%= f.button :submit, class: "btn btn-primary" %>
-    <% end %>
+<div class="wrapper">
+    <div class="container-fluid">
+      <div class="row">
+        <%= render 'places/place_info', place: @place %>
+        <br>
+        <%= render 'places/place_booking', place: @place %>
+      </div>
     </div>
-</div>
+  </div>
