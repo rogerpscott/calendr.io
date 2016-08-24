@@ -21,7 +21,7 @@ class BookingsController < ApplicationController
       BookingMailer.creation_confirmation(@booking).deliver_now
       redirect_to bookings_path
     else
-      render 'bookings/edit'
+      redirect_to place_path(@place)
     end
   end
 
