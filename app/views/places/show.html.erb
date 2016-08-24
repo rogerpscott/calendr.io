@@ -1,14 +1,22 @@
-<div class="container-place">
-  <div>
-    <h2><%= @place.name %></h2>
-    <p><%= @place.address %></p>
-  </div>
-  <div>
-    <h3>Make a booking</h3>
-    <%= simple_form_for [@place, @booking] do |f| %>
-    <%= f.input :start_time %>
-    <%= f.input :end_time %>
-    <%= f.button :submit, class: "btn btn-primary" %>
-    <% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div>
+        <h2><%= @place.name %></h2>
+        <p><%= @place.address %></p>
+      </div>
     </div>
+    <div class="col-xs-12">
+      <div>
+        <h3>Make a booking</h3>
+        <%= simple_form_for [@place, @booking] do |f| %>
+        <%= f.input :start_time %>
+        <%= f.input :end_time %>
+        <%= f.button :submit, class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
+
+<%= render 'calendar' %>
