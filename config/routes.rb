@@ -10,4 +10,6 @@ Rails.application.routes.draw do
 
   resources :bookings, only: [:index, :destroy]
 
+  mount Attachinary::Engine => "/attachinary"
+
 end

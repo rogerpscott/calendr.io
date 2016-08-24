@@ -2,6 +2,9 @@
   <div>
     <h2><%= @place.name %></h2>
     <p><%= @place.address %></p>
+    <% if @place.photo? %>
+  <%= cl_image_tag @place.photo.path, width: 200, height: 300, crop: :fill %>
+<% end %>
   </div>
   <div>
     <h3>Make a booking</h3>
