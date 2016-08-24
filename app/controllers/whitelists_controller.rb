@@ -9,6 +9,7 @@ class WhitelistsController < ApplicationController
     @place = Place.find(params[:place_id])
     @whitelist = Whitelist.new(params_whitelist)
     @whitelist.place = @place
+    authorize @whitelist
     if @whitelist.save
       redirect_to edit_place_path(@place)
     else
@@ -19,6 +20,7 @@ class WhitelistsController < ApplicationController
   def destroy
     @place = Place.find(params[:place_id])
     @whitelist = Whitelist.find(params[:id])
+    authorize @whitelist
     @whitelist.destroy
     redirect_to edit_place_path(@place)
   end
