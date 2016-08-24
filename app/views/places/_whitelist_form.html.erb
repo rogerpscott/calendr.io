@@ -1,0 +1,4 @@
+<%= simple_form_for [@place, @whitelist] do |f| %>
+<%= f.input :email %>
+<%= f.button :submit, 'add this email to the whitelist', class: "btn btn-primary" %>
+<% end %>

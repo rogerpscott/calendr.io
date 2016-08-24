@@ -1,6 +1,6 @@
 class Place < ApplicationRecord
   belongs_to :user
-  has_many :bookings
-  has_many :whitelists
-  has_attachment :photo
+  has_many :bookings, dependent: :destroy
+  has_many :whitelists, dependent: :destroy
+  has_attachment :photo, dependent: :destroy
 end

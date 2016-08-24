@@ -23,7 +23,7 @@ class PlacesController < ApplicationController
     authorize @place
     if @place.save
       PlaceMailer.creation_confirmation(@place).deliver_now
-      redirect_to places_path
+      redirect_to place_whitelists_path(@place)
     else
       render :new
     end
@@ -47,6 +47,7 @@ class PlacesController < ApplicationController
     @place = Place.find(params[:id])
     authorize @place
     @place.destroy
+    redirect_to places_path
   end
 
   private
