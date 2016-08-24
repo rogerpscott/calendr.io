@@ -18,6 +18,7 @@ class BookingsController < ApplicationController
     authorize @booking
 
     if @booking.save
+      BookingMailer.creation_confirmation(@booking).deliver_now
       redirect_to bookings_path
     else
       render 'bookings/edit'
