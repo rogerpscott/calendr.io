@@ -12,12 +12,10 @@ class PlacesController < ApplicationController
     @place = Place.find(params[:id])
     @booking = Booking.new
 
-    @bookings = Booking.where(user: current_user)
+    @bookings = Booking.where(place: @place)
     @events = []
     @bookings.each do |booking|
     @events << {title:  "#{booking.user.first_name} #{booking.user.last_name}", start: booking.start_time.iso8601, end: booking.end_time.iso8601, allDay: false}
-
-
     end
     authorize @place
   end
