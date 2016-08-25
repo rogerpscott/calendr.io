@@ -7,5 +7,7 @@
 //= require cloudinary/jquery.cloudinary
 //= require attachinary
 //= require air-datepicker
+//= require underscore
+//= require gmaps/google
 //= require_tree .
 
