@@ -25,7 +25,12 @@ gem "jquery-fileupload-rails"
 gem "coffee-rails"
 gem 'rails-assets-air-datepicker', source: 'https://rails-assets.org'
 gem 'cocoon'
+gem "gmaps4rails"
+gem 'geocoder'
 
+source 'https://rails-assets.org' do
+  gem "rails-assets-underscore"
+end
 
 group :development, :test do
   gem 'binding_of_caller'
