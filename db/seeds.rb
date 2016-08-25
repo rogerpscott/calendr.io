@@ -6,13 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-polo = User.new(email: "polo@live.fr", password: "polopolo")
+polo = User.new(first_name: "paul", last_name:"coco",email: "polo@live.fr", password: "polopolo")
 polo.save
 
-michou = User.new(email: "michou@live.fr", password: "michou")
+michou = User.new(first_name: "michel", last_name:"dubois", email: "michou@live.fr", password: "michou")
 michou.save
 
-beber = michou = User.new(email: "beber@live.fr", password: "beber")
+beber = User.new(first_name: "bertrant", last_name:"depuis",email: "beber@live.fr", password: "beber")
+beber.save
 
 
 place_tennis = Place.new(name: "Le tennis de Polo", address: "11 rue du camping à Vanne")
