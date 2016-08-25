@@ -6,6 +6,7 @@
 <div class='container container-booking'>
   <div class="row">
     <% @bookings.each do |booking| %>
+    <% if Date.today < booking.end_time   %>
     <div class="col-sm-6">
       <div class="booking-card">
         <div class="booking-card-description">
@@ -26,9 +27,9 @@
             <div class="col-md-8">
               <h2><%= booking.place.name %></h2>
               <p><em><%= booking.place.address %></em></p>
-              <span class="small"> <strong>Start :</strong><%= booking.start_time.strftime('%H:%M - %m/%d/%Y')%> </span>
+              <span class="small"> <strong>Start : </strong><%= booking.start_time.strftime('%H:%M - %m/%d/%Y')%> </span>
               <br>
-              <span class="small"><strong>End :</strong><%= booking.end_time.strftime('%H:%M - %m/%d/%Y')%></span>
+              <span class="small"><strong>End : </strong><%= booking.end_time.strftime('%H:%M - %m/%d/%Y')%></span>
             </div>
           </div>
         </div>
@@ -37,6 +38,7 @@
         </div>
       </div>
     </div>
+    <% end %>
     <% end %>
   </div>
 </div>
