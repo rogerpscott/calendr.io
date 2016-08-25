@@ -1,9 +1,47 @@
-<% @bookings.each do |booking| %>
- <ul class="list-unstyled text-center">
-      <li><%= booking.place.name%></li>
-      <li><%= booking.place.address%></li>
-      <li> Start : <%= booking.start_time%></li>
-      <li> End : <%=booking.end_time%> </li>
-      <%= link_to "Cancel booking", booking_path(booking), class:'btn btn-danger', method: :delete, data: { confirm: "Are you really sure?" } %>
-</ul>
-<% end %>
+<div class="booking-title">
+  <h1>My bookings</h1>
+</div>
+
+
+<div class='container container-booking'>
+  <div class="row">
+    <% @bookings.each do |booking| %>
+    <div class="col-sm-6">
+      <div class="booking-card">
+        <div class="booking-card-description">
+          <div class="booking-img-block" >
+            <% if booking.place.photo %>
+            <%= cl_image_tag booking.place.photo.path, class:"booking-card-img" %>
+            <% else %>
+            <%= image_tag 'tennis.jpg', class:"booking-card-img" %>
+            <% end %>
+          </div>
+
+          <div class="row">
+            <div class="col-md-4">
+              <div class="text-center">
+                <h3><span class="label label-info"><%= booking.start_time.strftime('%a %d')  %></span></h3>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <strong><%= booking.place.name %></strong><br>
+              <em><%= booking.place.address %></em><br>
+              <span class="small"> <strong>Start :</strong><%= booking.start_time.strftime('%H:%M - %m/%d/%Y')%> </span>
+              <br>
+              <span class="small"><strong>End :</strong><%= booking.end_time.strftime('%H:%M - %m/%d/%Y')%></span>
+            </div>
+          </div>
+        </div>
+        <div class="booking-button">
+          <%= link_to '<i class="fa fa-lg fa-trash-o"></i>'.html_safe, booking_path(booking), class:'btn btn-danger rounded' %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+
+
+
+
