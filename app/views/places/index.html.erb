@@ -1,27 +1,43 @@
-<h1 class="text-center">My Places</h1>
-
-<div class="text-center padded">
-  <%= link_to "Add a place", new_place_path, class: "btn btn-primary" %>
+<div class="place-title">
+  <h1>My Places  <%= link_to "Add a place", new_place_path, class: "btn btn-primary btn-round" %></h1>
 </div>
 
 
-<div class="container">
+<div class='container container-booking'>
   <div class="row">
     <% @places.each do |place| %>
-      <%= link_to place_path(place) do %>
-        <div class="col-xs-12 col-sm-4">
-          <div class="card text-center">
-            <div class="card-category">
-            <h1><%= place.name %></h1>
+    <div class="col-sm-6">
+      <div class="place-card">
+        <div class="place-card-description">
+          <div class="place-img-block" >
+            <% if place.photo %>
+            <%= cl_image_tag place.photo.path, class:"place-card-img" %>
+            <% else %>
+            <%= image_tag 'tennis.jpg', class:"place-card-img" %>
+            <% end %>
+          </div>
+
+          <div class="row">
+            <div class="col-md-4">
+              <div class="flex-button-container">
+                <%= link_to "View", place_path(place), class: "btn btn-primary btn-round" %>
+                <%= link_to "Edit", edit_place_path(place), class: "btn btn-success btn-round" %>
+                <%= link_to "Remove", place_path(place), method: :delete, class: "btn btn-danger btn-round" %>
+              </div>
             </div>
-            <div class="card-description">
-                <h2><%= place.address %></h2>
+            <div class="col-md-8">
+              <h2><%= place.name %></h2>
+              <p><em><%= place.address %></em></p>
             </div>
           </div>
-          <%= link_to "edit", edit_place_path(place) %>
-          <%= link_to "delete", place_path(place), method: :delete, data: { confirm: "Are you really sure you want to delete the place?" } %>
         </div>
-      <% end %>
+      </div>
+    </div>
     <% end %>
   </div>
 </div>
+
+
+
+
+

@@ -1,3 +1,4 @@
+// CALENDAR CSS
 .container-place {
   margin: 30px;
 }
@@ -13,6 +14,68 @@
 .fc-time-grid .fc-slats td {
     height: 10px;
 }
+
+// INDEX CSS
+
+.place-title {
+  padding: 30px;
+}
+.container-place {
+  position: relative;
+  padding:0px;
+  width: 85vw;
+
+}
+
+.place-card-description {
+  h2 {
+    size: 15px;
+    margin-top: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+}
+
+.place-card {
+  height: 450px;
+  border-radius: 1px;
+  box-shadow: 0px 0px 0px 8px rgba(0,0,0,0.085);
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 30px;
+  padding: 0px;
+
+}
+
+.place-img-block {
+  margin-bottom: 5px;
+  height: 300px;
+}
+
+.place-card-img {
+  text-align: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%);
+  background-position:center center;
+  background-repeat: no-repeat;
+  // background-size: cover !important;
+}
+
+.flex-button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  a {
+    margin: 5px;
+    width: 70%
+  }
+}
+
+
+
 
 
 

@@ -53,6 +53,7 @@ class PlacesController < ApplicationController
     @place = Place.find(params[:id])
     authorize @place
     @place.destroy
+    redirect_to places_path
   end
 
   private
