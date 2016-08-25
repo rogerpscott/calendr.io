@@ -11,7 +11,7 @@
   <% if @place.whitelists.present? %>
     <div class="row">
       <div class="col-xs-8 col-xs-offset-2">
-        <h4>Emails already authorized</h4>
+        <h4>Users authorized to book your place</h4>
         <ul>
           <% @place.whitelists.sort_by{ |whitelist| whitelist.email }.each do |whitelist| %>
             <li> <%= whitelist.email %>  <%= link_to place_whitelist_path(@place, whitelist), method: :delete, data: { confirm: "Are you sure you want to delete #{whitelist.email}?" } do %>

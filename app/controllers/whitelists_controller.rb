@@ -24,7 +24,7 @@ class WhitelistsController < ApplicationController
     @whitelist = Whitelist.find(params[:id])
     authorize @whitelist
     @whitelist.destroy
-    redirect_to edit_place_path(@place)
+    redirect_to place_whitelists_path(@place)
   end
 
    def params_whitelist

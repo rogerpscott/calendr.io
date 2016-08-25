@@ -3,6 +3,7 @@
 //= require bootstrap-sprockets
 //= require moment
 //= require fullcalendar
+////= require cocoon
 //= require jquery-fileupload/basic
 //= require cloudinary/jquery.cloudinary
 //= require attachinary

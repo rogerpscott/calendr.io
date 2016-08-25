@@ -23,13 +23,14 @@ class PlacesController < ApplicationController
   def new
     @place = Place.new
     authorize @place
+    @place.whitelists.build
   end
   def create
     @place = current_user.places.build(place_params)
     authorize @place
     if @place.save
       PlaceMailer.creation_confirmation(@place).deliver_now
-      redirect_to place_whitelists_path(@place)
+      redirect_to places_path
     else
       render :new
     end
@@ -59,7 +60,7 @@ class PlacesController < ApplicationController
   private
 
   def place_params
-    params.require(:place).permit(:address, :name, :user, :photo)
+    params.require(:place).permit(:address, :name, :user, :photo, whitelists_attributes: [:id, :email, :_destroy])
   end
 
 end

@@ -24,6 +24,7 @@ gem "attachinary", github: "assembler/attachinary"
 gem "jquery-fileupload-rails"
 gem "coffee-rails"
 gem 'rails-assets-air-datepicker', source: 'https://rails-assets.org'
+gem 'cocoon'
 
 
 group :development, :test do

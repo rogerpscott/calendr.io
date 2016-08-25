@@ -4,10 +4,9 @@
       <div id="background-form">
         <h1>Create a new place</h1>
         <%= simple_form_for(@place) do |f| %>
-        <%= render partial: 'form', locals: {f: f} %>
+          <%= render partial: 'form', locals: {f: f} %>
         <% end %>
         <br>
-        <%= link_to 'Back', places_path %>
       </div>
     </div>
   </div>

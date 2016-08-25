@@ -18,7 +18,9 @@
                 <h2><%= place.address %></h2>
             </div>
           </div>
-          <%= link_to "edit", edit_place_path(place) %>
+          <%= link_to "edit infos", edit_place_path(place) %>
+          <%= link_to "manage users", place_whitelists_path(place) %>
+          <%= link_to "view place", place_path(place) %>
           <%= link_to "delete", place_path(place), method: :delete, data: { confirm: "Are you really sure you want to delete the place?" } %>
         </div>
       <% end %>

@@ -4,16 +4,11 @@
       <div id="background-form">
         <h1>Update the place <%= @place.name%></h1>
         <%= simple_form_for(@place) do |f| %>
-        <%= render partial: 'form', locals: {f: f} %>
+        <%= render partial: 'form_edit', locals: {f: f} %>
         <% end %>
         <br>
         <%= link_to 'Back', places_path %>
       </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-8 col-xs-offset-2">
-      <%= render partial: 'whitelist_form' %>
     </div>
   </div>
 </div>
