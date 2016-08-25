@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
   def index
     @bookings = policy_scope(Booking)
-    @bookings = @bookings.where(user: current_user)
+    @bookings = @bookings.where(user: current_user).order(:start_time)
   end
 
 
