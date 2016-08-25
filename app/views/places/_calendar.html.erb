@@ -1,0 +1,46 @@
+<div class="container">
+  <div id="calendar" class="calendar-block">
+  </div>
+</div>
+
+
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+  $(document).ready(function() {
+    $('#calendar').fullCalendar({
+    height: 600,
+     views: {
+        month: {
+        columnFormat: 'dddd',
+            <!-- // options apply to month views -->
+        },
+        week: {
+            <!-- // options apply to weekk views -->
+        titleFormat: 'MMMM D YYYY'
+        },
+        day: {
+            <!-- // options day views -->
+        }
+    },
+
+    header: {
+    left:"",
+    center: 'title',
+    right: 'prev,next, month,agendaWeek,agendaDay'
+    },
+    <!-- start view on month display -->
+    defaultView: 'month',
+    <!-- start the week on monday -->
+    firstDay: 1,
+
+    <!-- show end date booking -->
+    displayEventEnd: true,
+    timeFormat:  'HH:mm',
+
+    events: <%= raw @events.to_json %>,
+
+    });
+  });
+  <% end %>
+<% end %>

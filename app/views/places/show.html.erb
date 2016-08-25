@@ -1,9 +1,12 @@
 <div class="wrapper">
-    <div class="container-fluid">
-      <div class="row">
-        <%= render 'places/place_info', place: @place %>
-        <br>
-        <%= render 'places/place_booking', place: @place %>
-      </div>
+  <div class="container-fluid">
+    <div class="row">
+      <%= render 'places/place_info', place: @place %>
+      <br>
+      <%= render 'places/place_booking', place: @place %>
     </div>
   </div>
+</div>
+
+
+<%= render 'calendar' %>

@@ -1,3 +1,18 @@
 .container-place {
   margin: 30px;
 }
+
+.calendar-block {
+  width: 80vw;
+  padding-top: 30px;
+  padding-bottom: 40px;
+
+}
+
+// height grid from week/day view
+.fc-time-grid .fc-slats td {
+    height: 10px;
+}
+
+
+
