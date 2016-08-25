@@ -6,7 +6,7 @@
 <div class='container container-place'>
   <div class="row">
     <% @places.each do |place| %>
-    <div class="col-sm-6">
+    <div class="col-xs-12 col-sm-6">
       <div class="place-card">
         <div class="place-card-description">
           <div class="place-img-block" >
@@ -20,14 +20,14 @@
           </div>
 
           <div class="row">
-            <div class="col-md-4">
+            <div class="col-xs-12 col-sm-4">
               <div class="flex-button-container">
                 <%= link_to "View", place_path(place), class: "btn btn-primary btn-round" %>
                 <%= link_to "Edit", edit_place_path(place), class: "btn btn-success btn-round" %>
                 <%= link_to "Remove", place_path(place), method: :delete, class: "btn btn-danger btn-round", date: { confirm: "Are you really sure you want to delete the place?" } %>
               </div>
             </div>
-            <div class="col-md-8">
+            <div class="col-xs-12 col-sm-8">
               <h2><%= place.name %></h2>
               <p><em><%= place.address %></em></p>
             </div>
