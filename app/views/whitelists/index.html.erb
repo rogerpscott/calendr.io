@@ -1,0 +1,32 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+      <div id="background-form">
+        <h2>Invite users to access <%= @place.name %>'s calendar </h2>
+        <%= render partial: 'places/whitelist_form' %>
+      </div>
+    </div>
+  </div>
+  <% if @place.whitelists.present? %>
+    <div class="row">
+      <div class="col-xs-8 col-xs-offset-2">
+        <h4>Users authorized to book your place</h4>
+        <ul>
+          <% @place.whitelists.sort_by{ |whitelist| whitelist.email }.each do |whitelist| %>
+            <li> <%= whitelist.email %>  <%= link_to place_whitelist_path(@place, whitelist), method: :delete, data: { confirm: "Are you sure you want to delete #{whitelist.email}?" } do %>
+                <i class= 'fa fa-trash-o'></i>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+      <%= link_to 'Check all your places', places_path, class: "btn btn-primary" %>
+      <%= link_to "Check this place's page", place_path(@place), class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>

@@ -5,7 +5,7 @@ $(document).ready(function(){
     timepicker: true,
     language: 'en',
     minutesStep: 30,
-    startDate: start,
-    autoClose: true
+    startDate: start, //today without minutes
+    autoClose: true //closing datepicker once a date is clicked
     })
 });

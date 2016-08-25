@@ -1,8 +1,10 @@
 class WhitelistsController < ApplicationController
 
   def index
-    # @user = current_user
-    # @whitelist = Whitelist.where(place_id: Places.current_user)
+    skip_policy_scope
+    @user = current_user
+    @place = Place.find(params[:place_id])
+    @whitelist = Whitelist.new
   end
 
   def create
@@ -11,9 +13,9 @@ class WhitelistsController < ApplicationController
     @whitelist.place = @place
     authorize @whitelist
     if @whitelist.save
-      redirect_to edit_place_path(@place)
+      redirect_to place_whitelists_path(@place)
     else
-      render 'places/edit'
+      redirect_to place_whitelists_path(@place), alert: "Error"
     end
   end
 
@@ -22,7 +24,7 @@ class WhitelistsController < ApplicationController
     @whitelist = Whitelist.find(params[:id])
     authorize @whitelist
     @whitelist.destroy
-    redirect_to edit_place_path(@place)
+    redirect_to place_whitelists_path(@place)
   end
 
    def params_whitelist
