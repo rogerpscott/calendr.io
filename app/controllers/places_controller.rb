@@ -23,6 +23,7 @@ class PlacesController < ApplicationController
   def new
     @place = Place.new
     authorize @place
+    @place.whitelists.build
   end
   def create
     @place = current_user.places.build(place_params)
@@ -53,12 +54,13 @@ class PlacesController < ApplicationController
     @place = Place.find(params[:id])
     authorize @place
     @place.destroy
+    redirect_to places_path
   end
 
   private
 
   def place_params
-    params.require(:place).permit(:address, :name, :user, :photo)
+    params.require(:place).permit(:address, :name, :user, :photo, whitelists_attributes: [:id, :email, :_destroy])
   end
 
 end
