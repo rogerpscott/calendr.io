@@ -3,7 +3,7 @@
 </div>
 
 
-<div class='container container-booking'>
+<div class='container container-place'>
   <div class="row">
     <% @places.each do |place| %>
     <div class="col-sm-6">
@@ -22,7 +22,7 @@
               <div class="flex-button-container">
                 <%= link_to "View", place_path(place), class: "btn btn-primary btn-round" %>
                 <%= link_to "Edit", edit_place_path(place), class: "btn btn-success btn-round" %>
-                <%= link_to "Remove", place_path(place), method: :delete, class: "btn btn-danger btn-round" %>
+                <%= link_to "Remove", place_path(place), method: :delete, class: "btn btn-danger btn-round", date: { confirm: "Are you really sure you want to delete the place?" } %>
               </div>
             </div>
             <div class="col-md-8">
@@ -30,10 +30,6 @@
               <p><em><%= place.address %></em></p>
             </div>
           </div>
-          <%= link_to "edit infos", edit_place_path(place) %>
-          <%= link_to "manage users", place_whitelists_path(place) %>
-          <%= link_to "view place", place_path(place) %>
-          <%= link_to "delete", place_path(place), method: :delete, data: { confirm: "Are you really sure you want to delete the place?" } %>
         </div>
       </div>
     </div>
