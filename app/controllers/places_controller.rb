@@ -15,6 +15,10 @@ class PlacesController < ApplicationController
     if @place.whitelists.find_by_email(@user.email) || @place.user == @user
       @booking = Booking.new
       @bookings = Booking.where(place: @place)
+      @hash = Gmaps4rails.build_markers([@place]) do |place, marker|
+        marker.lat place.latitude
+        marker.lng place.longitude
+      end
       @events = []
       @bookings.each do |booking|
         @events << {title:  "#{booking.user.first_name} #{booking.user.last_name}", start: booking.start_time.iso8601, end: booking.end_time.iso8601, allDay: false}
@@ -22,7 +26,6 @@ class PlacesController < ApplicationController
     else
       redirect_to invite_path(@place)
     end
-
   end
 
   def new
