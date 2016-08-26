@@ -1,0 +1,8 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <h4> <%=@user.first_name%>, you were not (yet) granted access to the calendar of <%=@place.name%> :(</h4>
+      <%= link_to 'Ask the owner for access', invite_path(@place), method: :put, class:"btn btn-round btn-success" %>
+    </div>
+  </div>
+</div>

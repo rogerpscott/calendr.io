@@ -1,0 +1,5 @@
+<p>Dear <%= @place.user.first_name %>,</p>
+
+<p><%= @user.first_name%> <%= @user.last_name%> requested access to <%= @place.name %></p>
+
+<p><%= link_to 'Grant Access to the calendar', place_whitelists_url(@place, invite_email: @user.email) %></p>
