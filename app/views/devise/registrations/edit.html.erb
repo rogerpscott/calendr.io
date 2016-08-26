@@ -11,6 +11,7 @@
           <p>Your email is <%= @user.email %>.</p>
           <%= f.input :first_name, required: true, autofocus: true %>
           <%= f.input :last_name, required: true %>
+          <%= f.input :avatar, as: :attachinary %>
 
           <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
             <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
