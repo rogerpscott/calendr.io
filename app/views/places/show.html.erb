@@ -1,4 +1,4 @@
- <% @image = @place.photo ? (cl_image_tag 'place.photo.path') : (image_path 'tennis.jpg')   %>
+ <% @image = @place.photo ? (cl_image_path @place.photo.path) : (image_path 'tennis.jpg')   %>
 
  <div class="wrapper wrapper-color-letter">
   <div class="container-fluid">
