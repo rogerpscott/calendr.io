@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers:{ registrations: 'registrations' }
   root to: 'places#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :places do
@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   end
 
   resources :bookings, only: [:index, :destroy]
+
+  resources :invites, only: [:show, :update]
 
   mount Attachinary::Engine => "/attachinary"
 

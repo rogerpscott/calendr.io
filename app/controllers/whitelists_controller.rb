@@ -4,7 +4,7 @@ class WhitelistsController < ApplicationController
     skip_policy_scope
     @user = current_user
     @place = Place.find(params[:place_id])
-    @whitelist = Whitelist.new
+    @whitelist = Whitelist.new(email: params[:invite_email])
   end
 
   def create
@@ -13,6 +13,7 @@ class WhitelistsController < ApplicationController
     @whitelist.place = @place
     authorize @whitelist
     if @whitelist.save
+      WhitelistMailer.invitation(@whitelist).deliver_now
       redirect_to place_whitelists_path(@place)
     else
       redirect_to place_whitelists_path(@place), alert: "Error"
