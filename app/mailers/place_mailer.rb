@@ -18,7 +18,7 @@ class PlaceMailer < ApplicationMailer
     @place = place
     @user = user
     mail(to: @place.user.email,
-      subject: "#{@user.first_name} #{user.last_name} asked to join #{@place.name}."
+      subject: "#{@user.first_name} #{@user.last_name} asked to join #{@place.name}."
     )
   end
 end
