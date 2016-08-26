@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :bookings
   has_many :places
+  has_attachment :avatar, dependent: :destroy
+
 
   after_create :send_welcome_email
 
