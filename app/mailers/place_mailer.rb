@@ -13,4 +13,12 @@ class PlaceMailer < ApplicationMailer
       subject: "Your place #{@place.name} was created!"
     )
   end
+
+  def ask_invitation(place, user)
+    @place = place
+    @user = user
+    mail(to: @place.user.email,
+      subject: "#{@user.first_name} #{user.last_name} asked to join #{@place.name}."
+    )
+  end
 end

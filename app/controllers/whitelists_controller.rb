@@ -4,7 +4,7 @@ class WhitelistsController < ApplicationController
     skip_policy_scope
     @user = current_user
     @place = Place.find(params[:place_id])
-    @whitelist = Whitelist.new
+    @whitelist = Whitelist.new(email: params[:invite_email])
   end
 
   def create
