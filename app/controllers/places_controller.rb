@@ -18,6 +18,11 @@ class PlacesController < ApplicationController
     @events << {title:  "#{booking.user.first_name} #{booking.user.last_name}", start: booking.start_time.iso8601, end: booking.end_time.iso8601, allDay: false}
     end
     authorize @place
+    @hash = Gmaps4rails.build_markers([@place]) do |place, marker|
+      marker.lat place.latitude
+      marker.lng place.longitude
+      # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+    end
   end
 
   def new

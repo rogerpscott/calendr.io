@@ -4,4 +4,6 @@ class Place < ApplicationRecord
   has_many :whitelists, dependent: :destroy
   accepts_nested_attributes_for :whitelists, reject_if: :all_blank, allow_destroy: true
   has_attachment :photo, dependent: :destroy
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
 end
