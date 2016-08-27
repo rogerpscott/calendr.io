@@ -27,6 +27,7 @@ gem 'rails-assets-air-datepicker', source: 'https://rails-assets.org'
 gem 'cocoon'
 gem "gmaps4rails"
 gem 'geocoder'
+gem "typedjs-rails", "~> 1.0.4"
 
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
