@@ -1,11 +1,13 @@
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path 'tennis.jpg' %>');">
+<% num = rand(1..6).to_s %>
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path 'photo' + num + '.jpg' %>');">
   <div class="banner-content">
-    <h1>Calendr.io</h1>
+    <%= image_tag "logowhitenopin.png", height:'70px' %>
+    <br>
+    <br>
     <p>The easiest way to manage calendars for <span class="element"></span></p>
-    <%= link_to 'All bookings', bookings_path, class:'btn btn-primary' %>
-    <%= link_to 'All my places', places_path, class:'btn btn-success' %>
-
-
+    <%= link_to new_place_path, class:'btn btn-warning' do %>
+      start your own <%= image_tag "pin.png", height:'30px' %>
+    <%end%>
   </div>
 </div>
 
@@ -13,7 +15,7 @@
   <%= javascript_tag do %>
     $(document).ready(function(){
         $(".element").typed({
-            strings: ["^3000 meeting rooms", "^2000 tennis courts", "^2000 the family beach house", "^2000 ..."],
+            strings: ["^0shared spaces", "^3000 a meeting room", "^2000 a tennis court", "^2000 your family cabin", "^2000 or a shared boat","^2000 ...","^2000 any shared space..."],
             typeSpeed: 0
         });
     });

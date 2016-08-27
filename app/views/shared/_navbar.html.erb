@@ -1,7 +1,7 @@
 <div class="navbar-wagon">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "logo2.jpg" %>
+    <%= image_tag "logo.png" %>
   <% end %>
 
   <!-- Right Navigation -->
@@ -9,9 +9,6 @@
 
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
-
-    <!-- Button (call-to-action) -->
-    <%= link_to t(".top_call_to_action", default: "Create a Calendr.io"), new_place_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
 
       <!-- Profile picture and dropdown -->
       <div class="navbar-wagon-item">
@@ -49,7 +46,7 @@
     <% else %>
 
       <!-- Login text link -->
-      <%= link_to t(".sign_in", default: "Log in"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to t(".sign_in", default: "log in"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
     <% end %>
 
