@@ -1,8 +1,8 @@
 <%= f.error_notification %>
 
-<%= f.input :name %>
-<%= f.input :address %>
-<%= f.input :photo, as: :attachinary %>
+<%= f.input :name, class: 'field' %>
+<%= f.input :address, class: 'field' %>
+<%= f.input :photo, as: :attachinary, class: 'field' %>
 
 <div id="whitelists">
   <h3>Invite someone to access this calendar</h3>
@@ -10,9 +10,9 @@
   <%= f.simple_fields_for :whitelists do |whitelist| %>
     <%= render 'whitelist_fields', f: whitelist %>
   <% end %>
-  <h4>
-    <%= link_to_add_association "<i class= 'fa fa-check'></i>".html_safe, f, :whitelists %>
-  </h4>
+  <div>
+  <%= link_to_add_association "add a user's email".html_safe, f, :whitelists, class: "btn btn-secondary", type: 'button' %>
+  </div>
 </div>
 <div class="col-xs-12 links">
   <%= f.button :submit, class: "btn btn-primary" %>
