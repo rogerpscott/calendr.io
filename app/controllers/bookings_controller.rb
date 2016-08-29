@@ -9,7 +9,7 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @place = Place.find(params[:place_id])
+    @place = Place.friendly.find(params[:place_id])
     @user = current_user
 
     @booking = Booking.new(booking_params)

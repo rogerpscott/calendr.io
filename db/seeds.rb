@@ -42,3 +42,4 @@ whitelist2 = Whitelist.new(email: "toto@live.fr")
 whitelist2.place = place_petanque
 whitelist2.save
 
+place.find_each(&:save)

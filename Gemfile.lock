@@ -98,6 +98,8 @@ GEM
       thor (~> 0.14)
     font-awesome-sass (4.6.2)
       sass (>= 3.2)
+    friendly_id (5.1.0)
+      activerecord (>= 4.0.0)
     fullcalendar-rails (2.8.0.0)
       jquery-rails (>= 4.0.5, < 5.0.0)
       jquery-ui-rails (>= 5.0.2)
@@ -258,6 +260,7 @@ DEPENDENCIES
   devise!
   figaro
   font-awesome-sass
+  friendly_id (~> 5.1.0)
   fullcalendar-rails
   geocoder
   gmaps4rails

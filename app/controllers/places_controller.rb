@@ -10,7 +10,7 @@ class PlacesController < ApplicationController
     @places = @places.where(user: current_user)
   end
   def show
-    @place = Place.find(params[:id])
+    @place = Place.friendly.find(params[:id])
     authorize @place
     @user = current_user
     if @place.whitelists.find_by_email(@user.email) || @place.user == @user
@@ -35,7 +35,6 @@ class PlacesController < ApplicationController
     @place.whitelists.build
   end
   def create
-    @place = current_user.places.build(place_params)
     authorize @place
     if @place.save
       PlaceMailer.creation_confirmation(@place).deliver_now
@@ -46,21 +45,21 @@ class PlacesController < ApplicationController
   end
 
   def edit
-    @place = Place.find(params[:id])
+    @place = Place.friendly.find(params[:id])
     @whitelists = @place.whitelists
     @whitelist = Whitelist.new
     authorize @place
   end
 
   def update
-    @place = Place.find(params[:id])
+    @place = Place.friendly.find(params[:id])
     authorize @place
     @place.update(place_params)
     redirect_to edit_place_path(@place)
   end
 
   def destroy
-    @place = Place.find(params[:id])
+    @place = Place.friendly.find(params[:id])
     authorize @place
     @place.destroy
     redirect_to places_path

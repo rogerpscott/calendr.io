@@ -2,6 +2,12 @@
 
 <%= f.input :name %>
 <%= f.input :address %>
+
+<h2 class="personalised-url">Personnalized URL</h2>
+<p>www.calendr.io/places/<%= @place.slug %></p>
+
+
 <%= f.input :photo, as: :attachinary %>
+
 
 <%= f.button :submit, class: "btn btn-primary" %>
