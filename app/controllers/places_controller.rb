@@ -69,7 +69,7 @@ class PlacesController < ApplicationController
   private
 
   def place_params
-    params.require(:place).permit(:address, :name, :user, :photo, whitelists_attributes: [:id, :email, :_destroy])
+    params.require(:place).permit(:address, :name, :user, :photo, :monday, :tuesday, :wednesday, :thursday, :friday, :saturday, :sunday, whitelists_attributes: [:id, :email, :_destroy])
   end
 
 end
