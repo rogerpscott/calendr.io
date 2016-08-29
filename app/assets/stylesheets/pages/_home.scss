@@ -24,3 +24,50 @@
     50% { opacity:0; }
     100% { opacity:1; }
 }
+
+.icons-orange {
+  color: #FD7A35;
+}
+
+#features {
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+#team {
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.team-member {
+  padding-top: 20px;
+}
+
+.features-top {
+  margin-bottom: 20px;
+}
+
+//bouncing arrow
+
+.arrow {
+  text-align: center;
+  margin: 8% 0;
+  color: white;
+}
+.bounce {
+  -moz-animation: bounce 2s infinite;
+  -webkit-animation: bounce 2s infinite;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}

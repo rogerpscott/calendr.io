@@ -13,3 +13,11 @@
 .alert-warning {
   background: $red;
 }
+
+.alert-home {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  z-index: 2;
+  width: 100%;
+}

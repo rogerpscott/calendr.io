@@ -1,3 +1,19 @@
 .btn-round {
   border-radius: 15px;
 }
+
+.orange-button {
+  margin-left: 10px;
+  padding: 0 20px;
+  border-radius: 20em;
+  line-height: 40px;
+  background-color: #FD5959;
+  color: white;
+  font-size: 14px;
+  border: 2px solid #FD5959;
+}
+.orange-button:hover {
+  color: white;
+  background: #FD5959;
+  border-color: #ac2626;
+}

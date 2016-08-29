@@ -1,21 +1,177 @@
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path 'tennis.jpg' %>');">
-  <div class="banner-content">
-    <h1>Calendr.io</h1>
+<% num = rand(1..6).to_s %>
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path 'photo' + num + '.jpg' %>');">
+  <%= render 'shared/flashes_home' %>
+  <%= render 'shared/navbar_home' %>
+  <div class="banner-content" >
+    <%= image_tag "logowhitenopin.png", height:'70px' %>
+    <br>
+    <br>
     <p>The easiest way to manage calendars for <span class="element"></span></p>
-    <%= link_to 'All bookings', bookings_path, class:'btn btn-primary' %>
-    <%= link_to 'All my places', places_path, class:'btn btn-success' %>
-
-
+    <%= link_to new_place_path, class:'btn btn-warning' do %>
+      create your own <%= image_tag "pinwhite.png", height:'30px' %>
+    <%end%>
   </div>
+<!--   <div class="arrow bounce">
+    <a class="fa fa-arrow-down fa-2x" href="#"></a>
+  </div> -->
 </div>
+</div>
+<div id="features-top"></div>
+<section id="features">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+          <h2 class="section-heading">The first calendar made for shared space</h2>
+          <br>
+      </div>
+    </div>
+    <div class="row text-center">
+      <div class="col-md-4">
+          <span class="fa-stack fa-4x">
+              <i class="fa fa-circle fa-stack-2x icons-orange"></i>
+              <i class="fa fa-location-arrow fa-stack-1x fa-inverse"></i>
+          </span>
+          <h4 class="features-heading">Beautiful</h4>
+          <p class="text-muted">Your place deserves more than just a dull calendar. Bring pictures, maps and a sleek design and <strong>get your users to go "wow"</strong>... </p>
+      </div>
+      <div class="col-md-4">
+          <span class="fa-stack fa-4x">
+              <i class="fa fa-circle fa-stack-2x icons-orange"></i>
+              <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
+          </span>
+          <h4 class="features-heading">Accessible</h4>
+          <p class="text-muted">No more paper or lost email, share the link of the calendar with anyone you want and let them book anytime. <strong>Bad surprise? No more.</strong></p>
+      </div>
+      <div class="col-md-4">
+          <span class="fa-stack fa-4x">
+              <i class="fa fa-circle fa-stack-2x icons-orange"></i>
+              <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
+          </span>
+          <h4 class="features-heading">Private</h4>
+          <p class="text-muted"><strong>You and only you are in charge</strong> of who gets access and can create bookings on your place. Easily add or remove any user from your calendar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="team" class="bg-light-gray">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+          <h2 class="section-heading">About us</h2>
+      </div>
+      <br>
+    </div>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="team-member text-center">
+          <%= image_tag "Roger.png", class:'avatar-bordered-large' %>
+          <h4>Roger Scott</h4>
+          <p class="text-muted">Lead Developper</p>
+          <ul class="list-inline social-buttons icons-orange">
+
+            <li>
+                <a href="">
+                    <i class="fa fa-twitter icons-orange"></i>
+                </a>
+            </li>
+
+            <li>
+                <a href="https://github.com/rogerpscott/">
+                    <i class="fa fa-github icons-orange"></i>
+                </a>
+            </li>
+
+            <li>
+                <a href="https://br.linkedin.com/in/roger-scott-322a0461/en">
+                    <i class="fa fa-linkedin icons-orange"></i>
+                </a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="team-member text-center">
+          <%= image_tag "Jon.jpeg", class:'avatar-bordered-large' %>
+          <h4>Jonathan Chevalier</h4>
+          <p class="text-muted">Fullstack Developper</p>
+          <ul class="list-inline social-buttons">
+
+              <li>
+                  <a href="https://twitter.com/Jojoooo1">
+                      <i class="fa fa-twitter icons-orange"></i>
+                  </a>
+              </li>
+
+              <li>
+                  <a href="https://github.com/Jojoooo1">
+                      <i class="fa fa-github icons-orange"></i>
+                  </a>
+              </li>
+
+              <li>
+                  <a href="https://www.linkedin.com/in/jonathan-chevalier-18b4ba57">
+                      <i class="fa fa-linkedin icons-orange"></i>
+                  </a>
+              </li>
+
+
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="team-member text-center">
+          <%= image_tag "mat.jpeg", class:'avatar-bordered-large' %>
+          <h4>Mathieu Le Roux</h4>
+          <p class="text-muted">Fullstack Developer</p>
+          <ul class="list-inline social-buttons icons-orange">
+
+              <li>
+                  <a href="https://twitter.com/matleroux">
+                      <i class="fa fa-twitter icons-orange"></i>
+                  </a>
+              </li>
+
+              <li>
+                  <a href="https://github.com/matleroux">
+                      <i class="fa fa-github icons-orange"></i>
+                  </a>
+              </li>
+
+              <li>
+                  <a href="https://www.linkedin.com/in/matleroux">
+                      <i class="fa fa-linkedin icons-orange"></i>
+                  </a>
+              </li>
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <% content_for(:after_js) do %>
   <%= javascript_tag do %>
     $(document).ready(function(){
         $(".element").typed({
-            strings: ["^3000 meeting rooms", "^2000 tennis courts", "^2000 the family beach house", "^2000 ..."],
+            strings: ["^0shared spaces", "^3000 a meeting room", "^2000 a tennis court", "^2000 your family cabin", "^2000 or a shared boat","^2000 ...","^2000 any shared space..."],
             typeSpeed: 0
         });
+    });
+  <% end %>
+  <%= javascript_tag do %>
+    $(document).ready(function(){
+      $(window).scroll(function() {
+        var scroll = $(window).scrollTop();
+
+        if (scroll >= 190) {
+          $('.navbar-wagon-home').addClass('post-scroll');
+        } else {
+          $('.navbar-wagon-home').removeClass('post-scroll');
+        }
+      });
     });
   <% end %>
 <% end %>

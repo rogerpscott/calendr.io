@@ -7,14 +7,22 @@
   border-radius: 50%;
 }
 .avatar-bordered {
-  width: 30px;
+  width: 50px;
   border-radius: 50%;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-  border: white 1px solid;
+  border: #FD7A35 1px solid;
 }
 .avatar-square {
   width: 30px;
   border-radius: 0px;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   border: white 1px solid;
+}
+
+.avatar-bordered-large {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+  border: #FD7A35 3px solid;
 }

@@ -10,6 +10,24 @@
   justify-content: space-between;
 }
 
+/* Homepage Navbar */
+
+.navbar-wagon-home {
+  transition: all 0.3s ease;
+  display: flex;
+  height: 70px;
+  padding: 0px 30px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Homepage Navbar past scroll */
+
+.post-scroll {
+  background: #506170;
+
+}
+
 /* Optional class to fix the navbar on top */
 .navbar-wagon-fixed {
   position: fixed;
@@ -40,8 +58,8 @@
 
 /* Navbar standard link */
 .navbar-wagon-link {
-  color: #616668;
-  font-size: 14px;
+  color: #FFFFFF;
+  font-size: 20px;
 }
 .navbar-wagon-link:hover {
   color: #da552f;
