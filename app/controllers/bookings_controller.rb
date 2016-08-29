@@ -16,12 +16,15 @@ class BookingsController < ApplicationController
     @booking.place = @place
     @booking.user = @user
     authorize @booking
-
-    if @booking.save
-      BookingMailer.creation_confirmation(@booking).deliver_now
-      redirect_to bookings_path
+    if @booking.start_time < @booking.end_time
+      if @booking.save
+        BookingMailer.creation_confirmation(@booking).deliver_now
+        redirect_to bookings_path
+      else
+        redirect_to place_path(@place), alert: "#{@place.name} is not available at that time. Please check the calendar."
+      end
     else
-      redirect_to place_path(@place)
+      redirect_to place_path(@place), alert: "Please choose a start time that is before the end time"
     end
   end
 

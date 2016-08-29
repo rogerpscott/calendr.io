@@ -100,17 +100,16 @@
 }
 
 .header-item-image {
-  height: 50vh;
-  padding: 35px;
+  height: 40vh;
 }
 
 .place-img-header {
   height: 100%;
-  width:100;
   border-radius: 0.5%;
 }
 
-.header-item-info {
+.header-block {
+  padding: 20px
 }
 
 .place-border-block {
@@ -118,13 +117,42 @@
   border-radius: 0.5%;
   color: black;
   height: 40vh;
-  margin: 35px;
   padding-top: 10px;
   padding-left: 15px;
   background-color: #F2F2F2;
-  opacity: 0.65;
+  opacity: 0.85;
   h2 {
     padding-top: 0px;
     margin-top: 0px;
+  }
+}
+
+// new place form
+
+#background-form {
+  border: 1px solid #777777;
+  padding: 50px;
+  margin: 15px;
+  border-radius: 0.5%;
+  box-shadow: 1px 1px 0px 0px rgba(0,0,0,0.3);
+  h1 {
+    font-size: 30px;
+  }
+}
+
+#whitelists{
+  h3 {
+    font-size: 20px;
+  }
+  a:hover {
+    color: #FD7A35;
+    text-decoration: none;
+  }
+}
+
+.links {
+  a:hover {
+    color: #FD7A35;
+    text-decoration: none;
   }
 }
