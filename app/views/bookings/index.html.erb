@@ -1,5 +1,5 @@
 <div class="booking-title">
-  <h1>My bookings <%= link_to 'Book a new place', places_path, class:'btn btn-round btn-success' %></h1>
+  <h1>My bookings <%= link_to "<i class= 'fa fa-plus'></i>  Book a new Place".html_safe, places_path, class:'btn btn-round btn-success' %></h1>
 </div>
 
 
@@ -8,7 +8,7 @@
     <% @bookings.each do |booking| %>
     <% if Date.today < booking.end_time   %>
     <div class="col-sm-6">
-      <div class="booking-card">
+      <div class="booking-card-block">
         <div class="booking-card-description">
           <div class="booking-img-block" >
             <% if booking.place.photo %>
