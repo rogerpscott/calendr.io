@@ -1,32 +1,6 @@
  <% @image = @place.photo ? (cl_image_path @place.photo.path) : (image_path 'tennis.jpg')   %>
 
- <div class="wrapper wrapper-color-letter">
-  <div class="container-fluid">
-    <div class="row header-place">
-      <div id="background-place-header" style="background-image: linear-gradient(-5deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 30%), url('<%= @image %>')">
-      </div>
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-xs-12 col-sm-5">
-            <div class="header-item-image">
-              <% if @place.photo %>
-              <%= cl_image_tag @place.photo.path, class:"place-img-header" %>
-              <% else %>
-              <%= image_tag 'tennis.jpg', class:"place-img-header" %>
-              <% end %>
-            </div>
-          </div>
-          <div class="col-xs-12 col-sm-7">
-            <div class="place-border-block">
-              <h2><%= @place.name %></h2>
-              <p><em><%= @place.address %></em></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+ <%= render'header_show_place' %>
 
 <div class="wrapper">
   <div class="container-fluid">
