@@ -5,7 +5,7 @@
       </div>
       <div class="container-fluid">
         <div class="row">
-          <div class="col-xs-12 col-sm-5">
+          <div class="col-xs-12 col-sm-5 header-block">
             <div class="header-item-image">
               <% if @place.photo %>
               <%= cl_image_tag @place.photo.path, class:"place-img-header" %>
@@ -14,7 +14,7 @@
               <% end %>
             </div>
           </div>
-          <div class="col-xs-12 col-sm-7">
+          <div class="col-xs-12 col-sm-7 header-block">
             <div class="place-border-block">
               <h2><%= @place.name %></h2>
               <p><em><%= @place.address %></em></p>

@@ -89,17 +89,16 @@
 }
 
 .header-item-image {
-  height: 50vh;
-  padding: 35px;
+  height: 40vh;
 }
 
 .place-img-header {
   height: 100%;
-  width:100;
   border-radius: 0.5%;
 }
 
-.header-item-info {
+.header-block {
+  padding: 20px
 }
 
 .place-border-block {
@@ -107,11 +106,10 @@
   border-radius: 0.5%;
   color: black;
   height: 40vh;
-  margin: 35px;
   padding-top: 10px;
   padding-left: 15px;
   background-color: #F2F2F2;
-  opacity: 0.65;
+  opacity: 0.85;
   h2 {
     padding-top: 0px;
     margin-top: 0px;
