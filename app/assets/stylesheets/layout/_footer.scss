@@ -1,1 +1,31 @@
 // Your footer style
+.footer {
+  background-color: #506170;
+  width: 100%;
+  padding: 15px;
+}
+
+.footer-text {
+  color: white;
+}
+
+/* Footer standard link */
+.footer-wagon-link {
+  color: #FFFFFF;
+}
+.footer-wagon-link:hover {
+  color: #da552f;
+  text-decoration: none;
+}
+
+.icons-white {
+  color: #FFFFFF;
+}
+
+.icons-white:hover {
+  color: #FD7A35;
+}
+
+.social-buttons {
+  font-size: 20px;
+}

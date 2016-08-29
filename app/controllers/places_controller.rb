@@ -2,6 +2,7 @@ class PlacesController < ApplicationController
 
   def home
     authorize Place
+    render :layout => 'home_layout'
   end
 
   def index

@@ -7,30 +7,27 @@
   <div class="row">
     <% @places.each do |place| %>
     <div class="col-xs-12 col-sm-6">
-      <div class="place-card">
-        <div class="place-card-description">
-          <div class="place-img-block" >
+      <div class="place-card-block">
+        <div class="place-img-block" >
           <%= link_to place_path(place) do %>
-            <% if place.photo %>
-            <%= cl_image_tag place.photo.path, class:"place-card-img" %>
-            <% else %>
-            <%= image_tag 'tennis.jpg', class:"place-card-img" %>
-            <% end %>
+          <% if place.photo %>
+          <%= cl_image_tag place.photo.path, class:"place-card-img img-fluid" %>
+          <% else %>
+          <%= image_tag 'tennis.jpg', class:"place-card-img img-fluid" %>
           <% end %>
+          <% end %>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-5">
+            <div class="flex-button-container">
+              <%= link_to "<i class= 'fa fa-eye'></i>  View".html_safe, place_path(place), class: "btn btn-primary btn-round" %>
+              <%= link_to "<i class= 'fa fa-pencil'></i>  Edit".html_safe, edit_place_path(place), class: "btn btn-success btn-round" %>
+              <%= link_to "<i class= 'fa fa-trash-o'></i>  Remove".html_safe, place_path(place), method: :delete, class: "btn btn-danger btn-round", date: { confirm: "Are you really sure you want to delete the place?" } %>
+            </div>
           </div>
-
-          <div class="row">
-            <div class="col-xs-12 col-sm-4">
-              <div class="flex-button-container">
-                <%= link_to "View", place_path(place), class: "btn btn-primary btn-round" %>
-                <%= link_to "Edit", edit_place_path(place), class: "btn btn-success btn-round" %>
-                <%= link_to "Remove", place_path(place), method: :delete, class: "btn btn-danger btn-round", date: { confirm: "Are you really sure you want to delete the place?" } %>
-              </div>
-            </div>
-            <div class="col-xs-12 col-sm-8">
-              <h2><%= place.name %></h2>
-              <p><em><%= place.address %></em></p>
-            </div>
+          <div class="col-xs-12 col-sm-7">
+            <h2><%= place.name %></h2>
+            <p><em><%= place.address %></em></p>
           </div>
         </div>
       </div>

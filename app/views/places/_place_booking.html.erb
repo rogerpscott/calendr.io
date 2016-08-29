@@ -1,4 +1,5 @@
-  <div class="col-sm-4 col-xs-12">
+<div class="col-xs-12 col-sm-4">
+  <div class="place-booking-form">
     <h3>Make a booking</h3>
     <%= simple_form_for [@place, @booking] do |f| %>
     <%= f.input :start_time, as: :string, label: 'I want to book from...', input_html: { class: 'datepickermin' } %>
@@ -6,3 +7,4 @@
     <%= f.button :submit, 'Book it :)', class: "btn btn-primary" %>
     <% end %>
   </div>
+</div>
