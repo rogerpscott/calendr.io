@@ -1,20 +1,23 @@
 <%= f.error_notification %>
 
-<%= f.input :name, class: 'field' %>
-<%= f.input :address, class: 'field' %>
-<%= f.input :photo, as: :attachinary, class: 'field' %>
-
+<div id="place-infos">
+  <%= f.input :name, class: 'field' %>
+  <%= f.input :address, class: 'field' %>
+  <%= f.input :photo, as: :attachinary, class: 'field' %>
+</div>
 <div id="whitelists">
-  <h3>Invite someone to access this calendar</h3>
+  <h3>Invite people to access this calendar</h3>
   <p>(you will allow them to book any available slot...)</p>
   <%= f.simple_fields_for :whitelists do |whitelist| %>
     <%= render 'whitelist_fields', f: whitelist %>
   <% end %>
   <div>
-  <%= link_to_add_association "add a user's email".html_safe, f, :whitelists, class: "btn btn-secondary", type: 'button' %>
+  <%= link_to_add_association "add person's email".html_safe, f, :whitelists %>
   </div>
 </div>
+<div style="margin: 25px">
+</div>
 <div class="col-xs-12 links">
-  <%= f.button :submit, class: "btn btn-primary" %>
+  <%= f.button :submit, class: "btn btn-warning" %>
   <%= link_to 'Cancel', places_path %>
 </div>
