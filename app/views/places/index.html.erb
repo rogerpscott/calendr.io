@@ -22,7 +22,7 @@
             <div class="flex-button-container">
               <%= link_to "<i class= 'fa fa-eye'></i>  View".html_safe, place_path(place), class: "btn btn-primary btn-round" %>
               <%= link_to "<i class= 'fa fa-pencil'></i>  Edit".html_safe, edit_place_path(place), class: "btn btn-success btn-round" %>
-              <%= link_to "<i class= 'fa fa-trash-o'></i>  Remove".html_safe, place_path(place), method: :delete, class: "btn btn-danger btn-round", date: { confirm: "Are you really sure you want to delete the place?" } %>
+              <%= link_to "<i class= 'fa fa-trash-o'></i>  Remove".html_safe, place_path(place), method: :delete, class: "btn btn-danger btn-round", data: { confirm: "Are you really sure you want to delete the place?" } %>
             </div>
           </div>
           <div class="col-xs-12 col-sm-7">
