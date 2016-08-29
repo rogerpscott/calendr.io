@@ -1,8 +1,8 @@
 <% num = rand(1..6).to_s %>
 <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path 'photo' + num + '.jpg' %>');">
-    <%= render 'shared/flashes_home' %>
-    <%= render 'shared/navbar_home' %>
-    <div class="banner-content" >
+  <%= render 'shared/flashes_home' %>
+  <%= render 'shared/navbar_home' %>
+  <div class="banner-content" >
     <%= image_tag "logowhitenopin.png", height:'70px' %>
     <br>
     <br>
@@ -11,7 +11,12 @@
       create your own <%= image_tag "pinwhite.png", height:'30px' %>
     <%end%>
   </div>
+<!--   <div class="arrow bounce">
+    <a class="fa fa-arrow-down fa-2x" href="#"></a>
+  </div> -->
 </div>
+</div>
+<div id="features-top"></div>
 <section id="features">
   <div class="container">
     <div class="row">
