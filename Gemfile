@@ -28,6 +28,7 @@ gem 'cocoon'
 gem "gmaps4rails"
 gem 'geocoder'
 gem "typedjs-rails", "~> 1.0.4"
+gem 'validates_overlap'
 
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"

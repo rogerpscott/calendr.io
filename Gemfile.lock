@@ -237,6 +237,8 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.2)
+    validates_overlap (0.6.0)
+      rails (>= 3.0.0)
     warden (1.2.6)
       rack (>= 1.0)
     websocket-driver (0.6.4)
@@ -282,6 +284,7 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0.0)
   typedjs-rails (~> 1.0.4)
   uglifier
+  validates_overlap
 
 RUBY VERSION
    ruby 2.3.1p112

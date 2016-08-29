@@ -6,6 +6,6 @@ $(document).ready(function(){
     language: 'en',
     minutesStep: 30,
     startDate: start, //today without minutes
-    autoClose: true //closing datepicker once a date is clicked
+    //autoClose: true //closing datepicker once a date is clicked
     })
 });
