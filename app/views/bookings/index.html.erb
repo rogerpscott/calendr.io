@@ -1,3 +1,4 @@
+
 <div class="booking-title">
   <h1>My bookings <%= link_to "<i class= 'fa fa-plus'></i>  Book a new Place".html_safe, places_path, class:'btn btn-round btn-success' %></h1>
 </div>
@@ -5,44 +6,28 @@
 
 <div class='container container-booking'>
   <div class="row">
-    <% @bookings.each do |booking| %>
+  <% @bookings.each do |booking| %>
     <% if Date.today < booking.end_time   %>
-    <div class="col-sm-6">
-      <div class="booking-card-block">
-        <div class="booking-card-description">
-          <div class="booking-img-block" >
-            <% if booking.place.photo %>
-            <%= cl_image_tag booking.place.photo.path, class:"booking-card-img" %>
-            <% else %>
-            <%= image_tag 'tennis.jpg', class:"booking-card-img" %>
-            <% end %>
-          </div>
-
-          <div class="row">
-            <div class="col-md-4">
-              <div class="text-center">
-                <h2><span class="label label-info"><%= booking.start_time.strftime('%a %d')  %></span></h2>
-              </div>
-            </div>
-            <div class="col-md-8">
-              <h2><%= booking.place.name %></h2>
-              <p><em><%= booking.place.address %></em></p>
-              <span class="small"> <strong>Start : </strong><%= booking.start_time.strftime('%H:%M - %m/%d/%Y')%> </span>
-              <br>
-              <span class="small"><strong>End : </strong><%= booking.end_time.strftime('%H:%M - %m/%d/%Y')%></span>
-            </div>
-          </div>
-        </div>
-        <div class="booking-button">
-          <%= link_to '<i class="fa fa-lg fa-trash-o"></i>'.html_safe, booking_path(booking), class:'btn btn-danger rounded' %>
-        </div>
-      </div>
-    </div>
+    <%= render 'booking-card-futur', booking: booking %>
     <% end %>
-    <% end %>
+  <% end %>
   </div>
 </div>
 
+<div class="booking-title">
+  <h1>My pastbookings</h1>
+</div>
+
+
+<div class='container container-booking'>
+  <div class="row">
+  <% @bookings.each do |booking| %>
+    <% if Date.today > booking.end_time   %>
+    <%= render 'booking-card-past', booking: booking %>
+    <% end %>
+  <% end %>
+  </div>
+</div>
 
 
 
