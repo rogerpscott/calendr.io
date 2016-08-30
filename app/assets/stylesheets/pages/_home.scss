@@ -51,8 +51,10 @@
 
 .arrow {
   text-align: center;
-  margin: 8% 0;
-  color: white;
+  a {
+    color: #FD5959;
+    text-decoration: none;
+  }
 }
 .bounce {
   -moz-animation: bounce 2s infinite;
