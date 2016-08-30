@@ -15,8 +15,8 @@ $(document).ready(function() {
 function onPlaceChanged() {
   var place = this.getPlace();
   var components = getAddressComponents(place);
-
-  $('#place_address').trigger('blur').val(components.address + ', ' + components.city + ', ' + components.zip_code + ', ' + components.country_code);
+  //Uncomment this line if you want to restructure the address upon selection
+  //$('#place_address').trigger('blur').val(components.address + ', ' + components.city + ', ' + components.zip_code + ', ' + components.country_code);
 }
 
 function getAddressComponents(place) {
