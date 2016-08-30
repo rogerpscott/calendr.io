@@ -1,0 +1,118 @@
+function setupNewPlace(_latitude, _longitude, _zoom){
+  $(document).ready(function() {
+    var place_address = $('#place_address').get(0);
+
+    if (place_address) {
+      var autocomplete = new google.maps.places.Autocomplete(place_address , { types: ['geocode'] });
+      google.maps.event.addListener(autocomplete, 'place_changed', onPlaceChanged);
+      google.maps.event.addDomListener(place_address , 'keydown', function(e) {
+        if (e.keyCode == 13) {
+          e.preventDefault(); // Do not submit the form on Enter.
+        }
+      });
+    }
+    var draggableMarker = true;
+    newPlaceMap(_latitude, _longitude,draggableMarker);
+    map.setZoom(_zoom)
+  });
+
+  function onPlaceChanged() {
+    var place = this.getPlace();
+    var components = getAddressComponents(place);
+    //Uncomment this line if you want to restructure the address upon selection
+    //$('#place_address').trigger('blur').val(components.address + ', ' + components.city + ', ' + components.zip_code + ', ' + components.country_code);
+    $('#latitude').val(place.geometry.location.lat());
+    $('#longitude').val(place.geometry.location.lng());
+    updateMap(place.geometry.location);
+  }
+
+  function updateMap(location){
+    map.panTo(location);
+    map.setZoom(16);
+    marker.setPosition(location);
+  }
+
+  function getAddressComponents(place) {
+    // If you want lat/lng, you can look at:
+    // - place.geometry.location.lat()
+    // - place.geometry.location.lng()
+
+    var street_number = null;
+    var route = null;
+     var zip_code = null;
+    var city = null;
+    var country_code = null;
+    for (var i in place.address_components) {
+      var component = place.address_components[i];
+      for (var j in component.types) {
+        var type = component.types[j];
+        if (type == 'street_number') {
+          street_number = component.long_name;
+        } else if (type == 'route') {
+          route = component.long_name;
+        } else if (type == 'postal_code') {
+          zip_code = component.long_name;
+        } else if (type == 'locality') {
+          city = component.long_name;
+        } else if (type == 'country') {
+          country_code = component.short_name;
+        }
+      }
+    }
+
+    return {
+      address: street_number == null ? route : (street_number + ' ' + route),
+      zip_code: zip_code,
+      city: city,
+      country_code: country_code
+    };
+  }
+
+  function newPlaceMap(_latitude, _longitude, draggableMarker){
+    //console.log(_latitude,_longitude,draggableMarker );
+    var mapCenter = new google.maps.LatLng(_latitude, _longitude);
+    var mapOptions = {
+        zoom: 2,
+        center: mapCenter,
+        disableDefaultUI: true,
+        scrollwheel: false,
+        panControl: false,
+        zoomControl: true,
+        draggable: true
+    };
+    var mapElement = document.getElementById('map-simple');
+    window.map = new google.maps.Map(mapElement, mapOptions);
+
+    // Google map marker content -----------------------------------------------------------------------------------
+
+    var markerContent = document.createElement('DIV');
+    markerContent.innerHTML =
+      '<div class="map-marker">' +
+      '<%= image_tag "pin.png", height:"30px"%>' +
+      '</div>'
+          ;
+
+    // Create marker on the map ------------------------------------------------------------------------------------
+
+    window.marker = new RichMarker({
+        //position: mapCenter,
+        position: new google.maps.LatLng( _latitude, _longitude ),
+        map: map,
+        draggable: draggableMarker,
+        content: markerContent,
+        flat: true
+    });
+
+    marker.content.className = 'marker-loaded';
+
+    // Update when marker dragged --------------------------------------------------------------------------------------------
+
+
+    google.maps.event.addListener(marker, 'dragend', function(evt){
+      var pos = marker.getPosition();
+      updateMap(pos);
+      $('#latitude').val(pos.lat());
+      $('#longitude').val(pos.lng());
+    });
+  }
+}

@@ -1,21 +1,35 @@
 <%= f.error_notification %>
 
-<%= f.input :name %>
-<%= f.input :address %>
+<div id="place-infos">
 
-<h2 class="personalised-url">Personnalized URL</h2>
-<p>www.calendr.io/<%= @place.slug %></p>
+  <p><strong>
+    1. Your place infos
+  </strong></p>
 
+  <%= f.input :name, class: 'field' %>
+  <%= f.input :address, class: 'field' %>
+  <%= f.input :latitude,as: :hidden, input_html: { id: 'latitude'} %>
+  <%= f.input :longitude, as: :hidden, input_html: { id: 'longitude'} %>
 
-<%= f.input :photo, as: :attachinary %>
-<h4>Days available</h4>
-<%= f.input :monday %>
-<%= f.input :tuesday %>
-<%= f.input :wednesday %>
-<%= f.input :thursday %>
-<%= f.input :friday %>
-<%= f.input :saturday %>
-<%= f.input :sunday %>
+  <p><strong>2. Refine location</strong></p>
+  <p>Drag the marker on the exact location of your place</p>
+    <div id="map-simple" class="map-submit"></div>
+  <br>
+  <p><strong>3. Add a photo</strong></p>
+  <%= f.input :photo, as: :attachinary, class: 'field' %>
+
+  <p><strong>4. Define availability</strong></p>
+  <%= f.input :monday %>
+  <%= f.input :tuesday %>
+  <%= f.input :wednesday %>
+  <%= f.input :thursday %>
+  <%= f.input :friday %>
+  <%= f.input :saturday %>
+  <%= f.input :sunday %>
+</div>
+
+  <h2 class="personalised-url">Personnalized URL</h2>
+  <p>www.calendr.io/<%= @place.slug %></p>
 
 <%= f.button :submit, class: "btn btn-warning" %>
 
