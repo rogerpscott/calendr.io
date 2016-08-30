@@ -11,3 +11,12 @@
     </div>
   </div>
 </div>
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    var _latitude = 43.118999;
+    var _longitude = 5.936625;
+    var _zoom = 2;
+    setupNewPlace(_latitude, _longitude, _zoom);
+  <%end%>
+<%end%>

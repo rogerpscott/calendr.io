@@ -22,6 +22,17 @@
             <!-- // options day views -->
         }
     },
+    <!-- hiddenDays: <%#= raw @place.non_available_day.to_json  %>, -->
+    dayRender: function (date, cell) {
+        var days = <%= raw @place.non_available_day.to_json  %>;
+        len = days.length;
+
+        for (var i = 0;i < len; i++) {
+          if (date.day() === days[i]) {
+            cell.css("background-color", "grey");
+          }
+        }
+    },
 
     header: {
     left:"",
