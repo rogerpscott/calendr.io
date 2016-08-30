@@ -17,6 +17,8 @@
         <div class="dropdown">
           <% if current_user.avatar %>
             <%= cl_image_tag current_user.avatar.path, class: "avatar-bordered dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <% elsif current_user.facebook_picture_url %>
+            <%= cl_image_tag current_user.facebook_picture_url, class: "avatar-bordered dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <% else %>
             <%= image_tag "avatardefault.png", class:"avatar-bordered dropdown-toggle", id:"navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <% end %>
