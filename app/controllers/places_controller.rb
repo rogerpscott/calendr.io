@@ -56,7 +56,7 @@ class PlacesController < ApplicationController
     @place = Place.friendly.find(params[:id])
     authorize @place
     @place.update(place_params)
-    redirect_to edit_place_path(@place)
+    redirect_to places_path
   end
 
   def destroy
