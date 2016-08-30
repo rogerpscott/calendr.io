@@ -10,7 +10,7 @@ class PlacesController < ApplicationController
     @places = @places.where(user: current_user)
   end
   def show
-    @place = Place.friendly.find(params[:id])
+    @place = Place.friendly.find(params[:friendly_id])
     authorize @place
     @user = current_user
     if @place.whitelists.find_by_email(@user.email) || @place.user == @user
