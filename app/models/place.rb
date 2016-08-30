@@ -7,6 +7,17 @@ class Place < ApplicationRecord
   has_attachment :photo, dependent: :destroy
   geocoded_by :address
   after_validation :geocode, if: Proc.new { |a| a.address_changed? && a.latitude.nil? }
-
   friendly_id :name, use: :slugged
+
+  def non_available_day
+    result = []
+    result << 0 unless sunday?
+    result << 1 unless monday?
+    result << 2 unless tuesday?
+    result << 3 unless wednesday?
+    result << 4 unless thursday?
+    result << 5 unless friday?
+    result << 6 unless saturday?
+    return result
+  end
 end
