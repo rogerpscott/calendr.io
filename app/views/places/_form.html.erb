@@ -1,10 +1,17 @@
 <%= f.error_notification %>
 
 <div id="place-infos">
+  <p><strong>1. Your place infos</strong></p>
   <%= f.input :name, class: 'field' %>
   <%= f.input :address, class: 'field' %>
+  <%= f.input :latitude,as: :hidden, input_html: { id: 'latitude'} %>
+  <%= f.input :longitude, as: :hidden, input_html: { id: 'longitude'} %>
+  <p><strong>2. Refine location</strong></p>
+  <p>Drag the marker on the exact location of your place</p>
+    <div id="map-simple" class="map-submit"></div>
+  <p><strong>3. Add a photo</strong></p>
   <%= f.input :photo, as: :attachinary, class: 'field' %>
-  <h4>Days available</h4>
+  <p><strong>4. Define availability</strong></p>
   <%= f.input :monday %>
   <%= f.input :tuesday %>
   <%= f.input :wednesday %>
@@ -14,7 +21,7 @@
   <%= f.input :sunday %>
 </div>
 <div id="whitelists">
-  <h3>Invite people to access this calendar</h3>
+  <p><strong>5. Define who can access your calendrio</strong></p>
   <p>(you will allow them to book any available slot...)</p>
   <%= f.simple_fields_for :whitelists do |whitelist| %>
     <%= render 'whitelist_fields', f: whitelist %>

@@ -156,3 +156,7 @@
     text-decoration: none;
   }
 }
+
+.marker-loaded {
+  .map-marker { visibility: visible; }
+}
