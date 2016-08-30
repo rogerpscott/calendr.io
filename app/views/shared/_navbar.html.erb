@@ -1,7 +1,7 @@
 <div class="navbar-wagon">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "logo.png" %>
+  <%= image_tag "logo.png" %>
   <% end %>
 
   <!-- Right Navigation -->
@@ -10,58 +10,78 @@
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
 
-      <!-- Profile picture and dropdown -->
-      <div class="navbar-wagon-item">
-        <div class="dropdown">
-          <% if current_user.avatar %>
-            <%= cl_image_tag current_user.avatar.path, class: "avatar-bordered dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
-          <% else %>
-            <%= image_tag "avatardefault.png", class:"avatar-bordered dropdown-toggle", id:"navbar-wagon-menu", "data-toggle" => "dropdown" %>
-          <% end %>
-          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-            <li>
-              <%= link_to edit_user_registration_path do %>
-                <i class="fa fa-user"></i> <%= t(".profile", default: "edit your profile") %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to places_path do %>
-                <i class="fa fa-home"></i>  <%= t(".places", default: "my places") %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to bookings_path do %>
-                <i class="fa fa-calendar-check-o"></i>  <%= t(".bookings", default: "my bookings") %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
-              <% end %>
-            </li>
-          </ul>
-        </div>
+    <!-- Profile picture and dropdown -->
+    <div class="navbar-wagon-item">
+      <div class="dropdown">
+        <% if current_user.avatar %>
+        <%= cl_image_tag current_user.avatar.path, class: "avatar-bordered dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+        <% else %>
+        <%= image_tag "avatardefault.png", class:"avatar-bordered dropdown-toggle", id:"navbar-wagon-menu", "data-toggle" => "dropdown" %>
+        <% end %>
+        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+          <li>
+            <%= link_to edit_user_registration_path do %>
+            <i class="fa fa-user"></i> <%= t(".profile", default: "edit your profile") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to places_path do %>
+            <i class="fa fa-home"></i>  <%= t(".places", default: "my places") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to bookings_path do %>
+            <i class="fa fa-calendar-check-o"></i>  <%= t(".bookings", default: "my bookings") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to destroy_user_session_path, method: :delete do %>
+            <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+            <% end %>
+          </li>
+        </ul>
       </div>
+    </div>
 
     <% else %>
 
-      <!-- Login text link -->
-      <%= link_to t(".sign_in", default: "log in"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <!-- Login text link -->
+    <%= link_to t(".sign_in", default: "log in"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
     <% end %>
 
   </div>
+
+  <% if user_signed_in? %>
 
   <!-- Dropdown list appearing on mobile only -->
   <div class="navbar-wagon-item hidden-md hidden-lg">
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">Some mobile link</a></li>
-        <li><a href="#">Other one</a></li>
-        <li><a href="#">Other one</a></li>
+        <li>
+          <%= link_to edit_user_registration_path do %>
+          <i class="fa fa-user"></i> <%= t(".profile", default: "edit your profile") %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to places_path do %>
+          <i class="fa fa-home"></i>  <%= t(".places", default: "my places") %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to bookings_path do %>
+          <i class="fa fa-calendar-check-o"></i>  <%= t(".bookings", default: "my bookings") %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to destroy_user_session_path, method: :delete do %>
+          <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+          <% end %>
+        </li>
       </ul>
     </div>
   </div>
+  <% end %>
 </div>
 
