@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20160829193038) do
-
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,7 +50,6 @@ ActiveRecord::Schema.define(version: 20160829193038) do
     t.float    "latitude"
     t.float    "longitude"
     t.string   "slug"
-    t.index ["slug"], name: "index_places_on_slug", using: :btree
     t.boolean  "monday",     default: true
     t.boolean  "tuesday",    default: true
     t.boolean  "wednesday",  default: true
@@ -60,6 +57,7 @@ ActiveRecord::Schema.define(version: 20160829193038) do
     t.boolean  "friday",     default: true
     t.boolean  "saturday",   default: true
     t.boolean  "sunday",     default: true
+    t.index ["slug"], name: "index_places_on_slug", using: :btree
     t.index ["user_id"], name: "index_places_on_user_id", using: :btree
   end
 
