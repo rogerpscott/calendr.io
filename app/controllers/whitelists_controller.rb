@@ -3,12 +3,12 @@ class WhitelistsController < ApplicationController
   def index
     skip_policy_scope
     @user = current_user
-    @place = Place.find(params[:place_id])
+    @place = Place.friendly.find(params[:place_id])
     @whitelist = Whitelist.new(email: params[:invite_email])
   end
 
   def create
-    @place = Place.find(params[:place_id])
+    @place = Place.friendly.find(params[:place_id])
     @whitelist = Whitelist.new(params_whitelist)
     @whitelist.place = @place
     authorize @whitelist
@@ -21,7 +21,7 @@ class WhitelistsController < ApplicationController
   end
 
   def destroy
-    @place = Place.find(params[:place_id])
+    @place = Place.friendly.find(params[:place_id])
     @whitelist = Whitelist.find(params[:id])
     authorize @whitelist
     @whitelist.destroy

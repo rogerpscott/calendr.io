@@ -2,6 +2,11 @@
 
 <%= f.input :name %>
 <%= f.input :address %>
+
+<h2 class="personalised-url">Personnalized URL</h2>
+<p>www.calendr.io/places/<%= @place.slug %></p>
+
+
 <%= f.input :photo, as: :attachinary %>
 <h4>Days available</h4>
 <%= f.input :monday %>
@@ -13,3 +18,4 @@
 <%= f.input :sunday %>
 
 <%= f.button :submit, class: "btn btn-warning" %>
+

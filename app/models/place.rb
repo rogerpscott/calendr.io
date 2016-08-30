@@ -1,4 +1,5 @@
 class Place < ApplicationRecord
+  extend FriendlyId
   belongs_to :user
   has_many :bookings, dependent: :destroy
   has_many :whitelists, dependent: :destroy
@@ -6,4 +7,6 @@ class Place < ApplicationRecord
   has_attachment :photo, dependent: :destroy
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
+
+  friendly_id :name, use: :slugged
 end
