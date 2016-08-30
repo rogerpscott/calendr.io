@@ -35,6 +35,7 @@ class PlacesController < ApplicationController
     @place.whitelists.build
   end
   def create
+    @place = current_user.places.build(place_params)
     authorize @place
     if @place.save
       PlaceMailer.creation_confirmation(@place).deliver_now
