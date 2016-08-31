@@ -30,21 +30,42 @@
 }
 
 #features {
-  margin-top: 100px;
-  margin-bottom: 100px;
+  margin-top: 80px;
+  padding-bottom: 20px;
+  margin-bottom: 85px;
+
+  h2 {
+    margin-bottom: 40px;
+  }
+  span {
+    margin-bottom: 40px;
+  }
+  .btn {
+    margin-top: 47px;
+  }
 }
 
 #team {
-  margin-top: 100px;
-  margin-bottom: 100px;
+  height: 70vh;
+  background-color: rgba(0,0,0,0.08) ;
+  margin-top: 60px;
+  padding-top: 35px;
+  padding-bottom: 80px;
 }
 
 .team-member {
-  padding-top: 20px;
+  h4 {
+    margin: 15px;
+  }
+}
+
+.section-heading {
+  margin-top: 20px;
+  margin-bottom: 60px;
 }
 
 .features-top {
-  margin-bottom: 20px;
+  margin-bottom: 35px;
 }
 
 //bouncing arrow
