@@ -16,17 +16,19 @@ class BookingsController < ApplicationController
     @booking.place = @place
     @booking.user = @user
     authorize @booking
-    if @booking.start_time < DateTime.now
+    if @booking.start_time < Time.current
       redirect_to place_path(@place), alert: "You cannot book a date in the past"
     elsif @booking.start_time > @booking.end_time
       redirect_to place_path(@place), alert: "Please choose a start time that is before the end time"
     elsif ( get_days_of_booking(@booking) & @place.non_available_day ).any?
-      redirect_to place_path(@place), alert: "#{@place.name} is not available during these days. Please check the calendar."
+      redirect_to place_path(@place), alert: "Your booking contains unavailable days of the week. Please check the calendar."
+    elsif overlaps?(@place, @booking)
+      redirect_to place_path(@place), alert: "#{@place.name} is already booked at that time. Please check the calendar."
     elsif @booking.save
       BookingMailer.creation_confirmation(@booking).deliver_now
       redirect_to bookings_path
     else
-      redirect_to place_path(@place), alert: "#{@place.name} is not available at that time. Please check the calendar."
+      redirect_to place_path(@place), alert: "Unexpected error your booking was not saved"
     end
   end
 
@@ -65,5 +67,11 @@ class BookingsController < ApplicationController
     else
       return (0..6).to_a.reject { |i| ((e + 1)...s).include? i}
     end
+  end
+
+  def overlaps?(place, booking)
+    st = booking.start_time
+    et = booking.end_time
+    !place.bookings.where(start_time: st..et).or(place.bookings.where(end_time: st..et)).count.zero?
   end
 end
