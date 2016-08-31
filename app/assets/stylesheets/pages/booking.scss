@@ -77,7 +77,7 @@
 .date {
     background: #fd7a35;
     float: left;
-    height: 75px;
+    height: 110px;
     margin-left: 30px;
     position: relative;
     width: 50px;
@@ -89,18 +89,15 @@
     text-align: center;
     text-shadow: 0 -1px 1px hsla(0,0%,0%,.1);
 }
-.date p:after {
-    content: '';
-    height: 25px;
-    left: -20px;
-    position: absolute;
-    top: -25px;
-    width: 90px;
-    box-shadow: 0 10px 10px -10px hsla(0,0%,0%,.5);
-}
+
 .date .day {
     display: block;
     font-size: 28px;
+}
+
+.date .day_week {
+    display: block;
+    font-size: 18px;
     padding-top: 6px;
 }
 
@@ -114,12 +111,15 @@
     position: absolute;
     width: 0;
 }
-.traditional:after {
-    border-right: 25px solid transparent;
-    left: 0;
-}
-.traditional:before {
-    border-left: 25px solid transparent;
-    right: 0;
-}
+
+// borders of the ribbon
+
+// .traditional:after {
+//     border-right: 25px solid transparent;
+//     left: 0;
+// }
+// .traditional:before {
+//     border-left: 25px solid transparent;
+//     right: 0;
+// }
 

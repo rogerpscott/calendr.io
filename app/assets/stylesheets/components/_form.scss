@@ -1,10 +1,41 @@
 .field {
   margin: 10px;
-  border-radius: 2px;
-  background-color: #ececec;
+  border-radius: 0,5%;
+  background-color: #E8F1F5;
   padding: 10px;
 }
 
 .map-submit {
   height: 200px;
+}
+
+#background-form {
+  padding: 50px;
+  margin: 15px;
+  border-radius: 0.5%;
+  background-color: white;
+  h1 {
+    font-size: 30px;
+  }
+}
+
+#whitelists{
+  h3 {
+    font-size: 20px;
+  }
+  a:hover {
+    color: #FD7A35;
+    text-decoration: none;
+  }
+}
+
+.links {
+  a:hover {
+    color: #FD7A35;
+    text-decoration: none;
+  }
+}
+
+.marker-loaded {
+  .map-marker { visibility: visible; }
 }

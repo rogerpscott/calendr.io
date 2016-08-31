@@ -134,37 +134,3 @@
   right: 35px;
   bottom: 35px;
 }
-
-// new place form
-
-#background-form {
-  border: 1px solid #777777;
-  padding: 50px;
-  margin: 15px;
-  border-radius: 0.5%;
-  box-shadow: 1px 1px 0px 0px rgba(0,0,0,0.3);
-  h1 {
-    font-size: 30px;
-  }
-}
-
-#whitelists{
-  h3 {
-    font-size: 20px;
-  }
-  a:hover {
-    color: #FD7A35;
-    text-decoration: none;
-  }
-}
-
-.links {
-  a:hover {
-    color: #FD7A35;
-    text-decoration: none;
-  }
-}
-
-.marker-loaded {
-  .map-marker { visibility: visible; }
-}
