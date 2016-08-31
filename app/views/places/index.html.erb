@@ -8,16 +8,16 @@
     <% @places.each do |place| %>
       <% image = place.photo ? (cl_image_path place.photo.path) : (image_path 'photo1.jpg')   %>
       <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image %>');">
-      <div class="card-category"><%= place.name%></div>
-      <div class="card-description">
-        <h2><%= place.address %></h2>
-      </div>
-      <div class="card-links">
-        <%= link_to "<i class= 'fa fa-pencil'></i>  Edit".html_safe, edit_place_path(place) %>
-        <br>
-        <%= link_to "<i class= 'fa fa-trash-o'></i>  Remove".html_safe, place_path(place), method: :delete, data: { confirm: "Are you really sure you want to delete the place?" } %>
-      </div>
-      <%= link_to "", place_path(place), class: "card-link" %>
+        <div class="card-category"><%= place.name%></div>
+        <div class="card-description">
+          <h2><%= place.address %></h2>
+        </div>
+        <div class="card-links">
+          <%= link_to "<i class= 'fa fa-pencil'></i>  Edit".html_safe, edit_place_path(place) %>
+          <br>
+          <%= link_to "<i class= 'fa fa-trash-o'></i>  Remove".html_safe, place_path(place), method: :delete, data: { confirm: "Are you really sure you want to delete the place?" } %>
+        </div>
+        <%= link_to "", place_path(place), class: "card-link" %>
       </div>
     <% end %>
   </div>
@@ -36,7 +36,7 @@
         <%= link_to "<i class= 'fa fa-calendar-check-o'></i>  Book".html_safe, place_path(place) %>
         <br>
       </div>
-      <%= link_to "", place_path(place), class: "card-link" %>
+      <%= link_to "", place_path(place), class: "card-past" %>
       </div>
     <% end %>
   </div>

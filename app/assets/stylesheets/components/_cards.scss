@@ -4,6 +4,7 @@
   background-size: cover !important;
   color: white;
   position: relative;
+  margin-top: 10px;
 }
 .card-links {
   position: absolute;
@@ -48,4 +49,17 @@
 }
 .card-link:hover{
   opacity: 0.1;
+}
+
+.card-past {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  z-index:1;
+  background: black;
+  opacity: 0.1;
+  vertical-align: middle;
+  padding: 5%;
+  font-size: 40px;
 }
