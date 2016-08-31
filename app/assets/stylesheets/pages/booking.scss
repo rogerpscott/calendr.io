@@ -72,4 +72,54 @@
   }
 }
 
+/* Date Ribbon */
+
+.date {
+    background: #fd7a35;
+    float: left;
+    height: 75px;
+    margin-left: 30px;
+    position: relative;
+    width: 50px;
+}
+.date p {
+    color: #f6f6f6;
+    font: 18px/30px Georgia, sans-serif;
+    position: relative;
+    text-align: center;
+    text-shadow: 0 -1px 1px hsla(0,0%,0%,.1);
+}
+.date p:after {
+    content: '';
+    height: 25px;
+    left: -20px;
+    position: absolute;
+    top: -25px;
+    width: 90px;
+    box-shadow: 0 10px 10px -10px hsla(0,0%,0%,.5);
+}
+.date .day {
+    display: block;
+    font-size: 28px;
+    padding-top: 6px;
+}
+
+/* Traditional Ribbon */
+
+.traditional:after, .traditional:before {
+    border-top: 15px solid #fd7a35;
+    bottom: -15px;
+    content: '';
+    height: 0;
+    position: absolute;
+    width: 0;
+}
+.traditional:after {
+    border-right: 25px solid transparent;
+    left: 0;
+}
+.traditional:before {
+    border-left: 25px solid transparent;
+    right: 0;
+}
 

@@ -8,7 +8,14 @@
     <% @bookings.each do |booking| %>
       <% image = booking.place.photo ? (cl_image_path booking.place.photo.path) : (image_path 'photo1.jpg')   %>
       <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image %>');">
-        <div class="card-category"><%= booking.start_time.strftime('%a %d / %m') %> at <%= booking.place.name%></div>
+        <div class="card-category">
+          <div class="date traditional">
+            <p>
+              <span class="day"><%= booking.start_time.strftime('%d') %></span>
+              <span class="month"><%= booking.start_time.strftime('%b') %></span>
+            </p>
+          </div>
+        </div>
         <div class="card-description">
             <h2><%= booking.place.name %></h2>
             <p><em><%= booking.place.address %></em></p>
