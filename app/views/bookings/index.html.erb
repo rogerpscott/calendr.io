@@ -17,9 +17,9 @@
             <span class="small"><strong>To: </strong><%= booking.end_time.strftime('%H:%M - %d/%m/%Y')%></span>
         </div>
         <div class="card-links">
-          <%= link_to "<i class= 'fa fa-home'></i>  Check the place".html_safe, place_path(booking.place) %>
+          <%= link_to "<i class= 'fa fa-home'></i>  Check the place".html_safe, friendly_place_path(booking.place) %>
           <br>
-          <%= link_to "<i class= 'fa fa-trash-o'></i> Cancel".html_safe, place_path(booking.place), method: :delete, data: { confirm: "Are you really sure you want to cancel this booking?" } %>
+          <%= link_to "<i class= 'fa fa-trash-o'></i> Cancel".html_safe, friendly_place_path(booking.place), method: :delete, data: { confirm: "Are you really sure you want to cancel this booking?" } %>
         </div>
         <% if Date.today > booking.end_time   %>
           <div class= "card-past text-center"> Past Booking</div>

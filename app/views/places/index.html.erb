@@ -15,7 +15,7 @@
         <div class="card-links">
           <%= link_to "<i class= 'fa fa-pencil'></i>  Edit".html_safe, edit_place_path(place) %>
           <br>
-          <%= link_to "<i class= 'fa fa-trash-o'></i>  Remove".html_safe, place_path(place), method: :delete, data: { confirm: "Are you really sure you want to delete the place?" } %>
+          <%= link_to "<i class= 'fa fa-trash-o'></i>  Remove".html_safe, friendly_place_path(place), method: :delete, data: { confirm: "Are you really sure you want to delete the place?" } %>
         </div>
         <%= link_to "", friendly_place_path(place), class: "card-link" %>
       </div>
@@ -33,7 +33,7 @@
         <h2><%= place.address %></h2>
       </div>
       <div class="card-links">
-        <%= link_to "<i class= 'fa fa-calendar-check-o'></i>  Book".html_safe, place_path(place) %>
+        <%= link_to "<i class= 'fa fa-calendar-check-o'></i>  Book".html_safe, friendly_place_path(place) %>
         <br>
       </div>
       <%= link_to "", friendly_place_path(place), class: "card-past" %>

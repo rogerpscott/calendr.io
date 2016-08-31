@@ -40,7 +40,7 @@ class PlacesController < ApplicationController
     authorize @place
     if @place.save
       PlaceMailer.creation_confirmation(@place).deliver_now
-      redirect_to place_path(@place)
+      redirect_to friendly_place_path(@place)
     else
       render :new
     end
@@ -57,7 +57,7 @@ class PlacesController < ApplicationController
     @place = Place.friendly.find(params[:id])
     authorize @place
     @place.update(place_params)
-    redirect_to place_path(@place)
+    redirect_to friendly_place_path(@place)
   end
 
   def destroy
