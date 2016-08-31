@@ -1,42 +1,46 @@
-<div class="place-title">
-  <h1>My Places  <%= link_to "Add a place", new_place_path, class: "btn btn-primary btn-round" %></h1>
-</div>
-
-
 <div class='container container-place'>
+  <div class="place-title">
+    <h2>My Places
+      <%= link_to "Create a new place", new_place_path, class: "btn btn-warning" %>
+    </h2>
+  </div>
   <div class="row">
     <% @places.each do |place| %>
-    <div class="col-xs-12 col-sm-6">
-      <div class="place-card-block">
-        <div class="place-img-block" >
-          <%= link_to place_path(place) do %>
-          <% if place.photo %>
-          <%= cl_image_tag place.photo.path, class:"place-card-img img-fluid" %>
-          <% else %>
-          <%= image_tag 'photo6.jpg', class:"place-card-img img-fluid" %>
-          <% end %>
-          <% end %>
+      <% image = place.photo ? (cl_image_path place.photo.path) : (image_path 'photo1.jpg')   %>
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image %>');">
+        <div class="card-category"><%= place.name%></div>
+        <div class="card-description">
+          <h2><%= place.address %></h2>
         </div>
-        <div class="row">
-          <div class="col-xs-12 col-sm-5">
-            <div class="flex-button-container">
-              <%= link_to "<i class= 'fa fa-eye'></i>  View".html_safe, friendly_place_path(place), class: "btn btn-primary btn-round" %>
-              <%= link_to "<i class= 'fa fa-pencil'></i>  Edit".html_safe, edit_place_path(place), class: "btn btn-success btn-round" %>
-              <%= link_to "<i class= 'fa fa-trash-o'></i>  Remove".html_safe, place_path(place), method: :delete, class: "btn btn-danger btn-round", data: { confirm: "Are you really sure you want to delete the place?" } %>
-            </div>
-          </div>
-          <div class="col-xs-12 col-sm-7">
-            <h2><%= place.name %></h2>
-            <p><em><%= place.address %></em></p>
-          </div>
+        <div class="card-links">
+          <%= link_to "<i class= 'fa fa-pencil'></i>  Edit".html_safe, edit_place_path(place) %>
+          <br>
+          <%= link_to "<i class= 'fa fa-trash-o'></i>  Remove".html_safe, place_path(place), method: :delete, data: { confirm: "Are you really sure you want to delete the place?" } %>
         </div>
+        <%= link_to "", friendly_place_path(place), class: "card-link" %>
       </div>
-    </div>
+    <% end %>
+  </div>
+    <div class="place-title">
+    <h2>The Places I can book</h2>
+  </div>
+  <div class="row">
+    <% @places_whitelisted.each do |place| %>
+      <% image = place.photo ? (cl_image_path place.photo.path) : (image_path 'photo1.jpg')   %>
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image %>');">
+      <div class="card-category"><%= place.name%></div>
+      <div class="card-description">
+        <h2><%= place.address %></h2>
+      </div>
+      <div class="card-links">
+        <%= link_to "<i class= 'fa fa-calendar-check-o'></i>  Book".html_safe, place_path(place) %>
+        <br>
+      </div>
+      <%= link_to "", friendly_place_path(place), class: "card-past" %>
+      </div>
     <% end %>
   </div>
 </div>
-
-
 
 
 

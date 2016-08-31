@@ -1,34 +1,32 @@
-
-<div class="booking-title">
-  <h1>My bookings <%= link_to "<i class= 'fa fa-plus'></i>  Book a new Place".html_safe, places_path, class:'btn btn-round btn-success' %></h1>
-</div>
-
-
-<div class='container container-booking'>
-  <div class="row">
-  <% @bookings.each do |booking| %>
-    <% if Date.today < booking.end_time   %>
-    <%= render 'booking-card-futur', booking: booking %>
-    <% end %>
-  <% end %>
+<div class='container container-place'>
+  <div class="place-title">
+    <h2>My Bookings
+      <%= link_to "<i class= 'fa fa-plus'></i>  Book a new Place".html_safe, places_path, class: "btn btn-warning" %>
+    </h2>
   </div>
-</div>
-
-<div class="booking-title">
-  <h1>My pastbookings</h1>
-</div>
-
-
-<div class='container container-booking'>
   <div class="row">
-  <% @bookings.each do |booking| %>
-    <% if Date.today > booking.end_time   %>
-    <%= render 'booking-card-past', booking: booking %>
+    <% @bookings.each do |booking| %>
+      <% image = booking.place.photo ? (cl_image_path booking.place.photo.path) : (image_path 'photo1.jpg')   %>
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image %>');">
+        <div class="card-category"><%= booking.start_time.strftime('%a %d / %m') %> at <%= booking.place.name%></div>
+        <div class="card-description">
+            <h2><%= booking.place.name %></h2>
+            <p><em><%= booking.place.address %></em></p>
+            <span class="small"> <strong>From: </strong><%= booking.start_time.strftime('%H:%M - %d/%m/%Y')%> </span>
+            <br>
+            <span class="small"><strong>To: </strong><%= booking.end_time.strftime('%H:%M - %d/%m/%Y')%></span>
+        </div>
+        <div class="card-links">
+          <%= link_to "<i class= 'fa fa-home'></i>  Check the place".html_safe, place_path(booking.place) %>
+          <br>
+          <%= link_to "<i class= 'fa fa-trash-o'></i> Cancel".html_safe, place_path(booking.place), method: :delete, data: { confirm: "Are you really sure you want to cancel this booking?" } %>
+        </div>
+        <% if Date.today > booking.end_time   %>
+          <div class= "card-past text-center"> Past Booking</div>
+        <% end %>
+      </div>
     <% end %>
-  <% end %>
   </div>
-</div>
-
 
 
 

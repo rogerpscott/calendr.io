@@ -7,6 +7,7 @@ class PlacesController < ApplicationController
 
   def index
     @places = policy_scope(Place)
+    @places_whitelisted = @places.where(id: Whitelist.where(email: current_user.email).pluck(:place_id))
     @places = @places.where(user: current_user)
   end
   def show
