@@ -14,5 +14,5 @@ Rails.application.routes.draw do
 
   mount Attachinary::Engine => "/attachinary"
 
-
+  get '/:friendly_id', to: 'places#show', :as => :friendly_place
 end
