@@ -23,6 +23,7 @@
 }
 
 .place-card-block {
+  margin-bottom: 30px;
   width: 90%;
   border-radius: 1px;
   box-shadow: 0px 0px 0px 8px rgba(0,0,0,0.085);
@@ -113,6 +114,7 @@
 }
 
 .place-border-block {
+  position: relative;
   box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.3);
   border-radius: 0.5%;
   color: black;
@@ -125,6 +127,12 @@
     padding-top: 0px;
     margin-top: 0px;
   }
+}
+
+.place-button-edit-header {
+  position: absolute;
+  right: 35px;
+  bottom: 35px;
 }
 
 // new place form
