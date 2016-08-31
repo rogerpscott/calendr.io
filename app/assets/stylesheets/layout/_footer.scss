@@ -1,5 +1,9 @@
 // Your footer style
 .footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 170px;
   background-color: #506170;
   width: 100%;
   padding: 15px;
