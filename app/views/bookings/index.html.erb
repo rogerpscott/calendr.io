@@ -8,7 +8,15 @@
     <% @bookings.each do |booking| %>
       <% image = booking.place.photo ? (cl_image_path booking.place.photo.path) : (image_path 'photo1.jpg')   %>
       <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image %>');">
-        <div class="card-category"><%= booking.start_time.strftime('%a %d / %m') %> at <%= booking.place.name%></div>
+        <div class="card-ribbon">
+          <div class="date traditional">
+            <p>
+              <span class="day_week"><%= booking.start_time.strftime('%a') %></span>
+              <span class="day"><%= booking.start_time.strftime('%d') %></span>
+              <span class="month"><%= booking.start_time.strftime('%b') %></span>
+            </p>
+          </div>
+        </div>
         <div class="card-description">
             <h2><%= booking.place.name %></h2>
             <p><em><%= booking.place.address %></em></p>
@@ -19,7 +27,7 @@
         <div class="card-links">
           <%= link_to "<i class= 'fa fa-home'></i>  Check the place".html_safe, friendly_place_path(booking.place) %>
           <br>
-          <%= link_to "<i class= 'fa fa-trash-o'></i> Cancel".html_safe, friendly_place_path(booking.place), method: :delete, data: { confirm: "Are you really sure you want to cancel this booking?" } %>
+          <%= link_to "<i class= 'fa fa-trash-o'></i> Cancel".html_safe, booking_path(booking), method: :delete, data: { confirm: "Are you really sure you want to cancel this booking?" } %>
         </div>
         <% if Date.today > booking.end_time   %>
           <div class= "card-past text-center"> Past Booking</div>

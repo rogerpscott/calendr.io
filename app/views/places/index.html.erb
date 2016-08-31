@@ -10,7 +10,7 @@
       <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image %>');">
         <div class="card-category"><%= place.name%></div>
         <div class="card-description">
-          <h2><%= place.address %></h2>
+          <p><%= place.address %></p>
         </div>
         <div class="card-links">
           <%= link_to "<i class= 'fa fa-pencil'></i>  Edit".html_safe, edit_place_path(place) %>
@@ -30,7 +30,7 @@
       <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image %>');">
       <div class="card-category"><%= place.name%></div>
       <div class="card-description">
-        <h2><%= place.address %></h2>
+        <p><%= place.address %></p>
       </div>
       <div class="card-links">
         <%= link_to "<i class= 'fa fa-calendar-check-o'></i>  Book".html_safe, friendly_place_path(place) %>
