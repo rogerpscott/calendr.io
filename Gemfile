@@ -29,7 +29,6 @@ gem 'cocoon'
 gem "gmaps4rails"
 gem 'geocoder'
 gem "typedjs-rails", "~> 1.0.4"
-gem 'validates_overlap'
 gem 'omniauth-facebook'
 
 source 'https://rails-assets.org' do

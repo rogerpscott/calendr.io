@@ -20,4 +20,16 @@ class Place < ApplicationRecord
     result << 6 unless saturday?
     return result
   end
+
+  def array_available_day
+    result = []
+    result << "Monday" if monday?
+    result << "Tuesday" if tuesday?
+    result << "Wednesday" if wednesday?
+    result << "Thursday" if thursday?
+    result << "Friday" if friday?
+    result << "Saturday" if saturday?
+    result << "Sunday" if sunday?
+    return result
+  end
 end

@@ -18,6 +18,20 @@
             <div class="place-border-block">
               <h2><%= @place.name %></h2>
               <p><em><%= @place.address %></em></p>
+              <br>
+             <p>Available on :<% @place.array_available_day.each do |day| %> <span class="label-day"> <%= day %> </span> <% end %></p>
+             <br>
+             <br>
+             <p>This place was created by :</p>
+             <% if @place.user.avatar %>
+               <%= cl_image_tag @place.user.avatar.path, class: "avatar-bordered dropdown-toggle avatar-margin", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+             <% else %>
+               <%= image_tag "avatardefault.png", class:"avatar-bordered dropdown-toggle avatar-margin", id:"navbar-wagon-menu", "data-toggle" => "dropdown" %>
+             <% end %>
+             <span>  <%=@place.user.first_name %> <%= @place.user.last_name %></span>
+            </div>
+            <div class="place-button-edit-header">
+              <%= link_to "<i class= 'fa fa-pencil'></i>  Edit".html_safe, edit_place_path(@place), class: "btn btn-success" %>
             </div>
           </div>
         </div>
