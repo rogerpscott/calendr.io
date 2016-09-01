@@ -5,7 +5,7 @@
       </div>
       <div class="container-fluid">
         <div class="row">
-          <div class="col-xs-12 col-sm-5 header-block">
+          <div class="col-xs-12 col-sm-6 header-block">
             <div class="header-item-image">
               <% if @place.photo %>
               <%= cl_image_tag @place.photo.path, class:"place-img-header" %>
@@ -14,26 +14,53 @@
               <% end %>
             </div>
           </div>
-          <div class="col-xs-12 col-sm-7 header-block">
+          <div class="col-xs-12 col-sm-6 header-block">
+            <div id="map" style="width: 100%; height: 360px;"></div>
+            <% content_for(:after_js) do %>
+              <%= javascript_tag do %>
+                $(document).ready(function() {
+                  var handler = Gmaps.build('Google');
+                  handler.buildMap({ internal: { id: 'map' } }, function() {
+                    markers = handler.addMarkers(<%= raw @hash.to_json %>);
+                    handler.bounds.extendWith(markers);
+                    handler.fitMapToBounds();
+                    if (markers.length == 0) {
+                      handler.getMap().setZoom(2);
+                    }
+                    else if (markers.length == 1) {
+                      handler.getMap().setZoom(14);
+                    }
+                  });
+                });
+              <% end %>
+            <% end %>
+          </div>
+          <div class="col-xs-12 header-block">
             <div class="place-border-block">
               <h2><%= @place.name %></h2>
               <p><em><%= @place.address %></em></p>
               <br>
-             <p>Available on :<% @place.array_available_day.each do |day| %> <span class="label-day"> <%= day %> </span> <% end %></p>
-             <br>
-             <br>
-             <p>This place was created by :</p>
-             <% if @place.user.avatar %>
-               <%= cl_image_tag @place.user.avatar.path, class: "avatar-bordered dropdown-toggle avatar-margin", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
-                <% elsif current_user.facebook_picture_url %>
-            <%= cl_image_tag current_user.facebook_picture_url, class: "avatar-bordered dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
-             <% else %>
-               <%= image_tag "avatardefault.png", class:"avatar-bordered dropdown-toggle avatar-margin", id:"navbar-wagon-menu", "data-toggle" => "dropdown" %>
-             <% end %>
-             <span>  <%=@place.user.first_name %> <%= @place.user.last_name %></span>
-            </div>
-            <div class="place-button-edit-header">
-              <%= link_to "<i class= 'fa fa-pencil'></i>  Edit".html_safe, edit_place_path(@place), class: "btn btn-success" %>
+               <p>Available on :<% @place.array_available_day.each do |day| %> <span class="label-day"> <%= day %> </span> <% end %></p>
+              <% if @place.user == current_user %>
+                <div class="place-button-edit-header">
+                  <%= link_to "<i class= 'fa fa-pencil'></i>  Edit".html_safe, edit_place_path(@place), class: "btn btn-warning" %>
+                </div>
+              <% else %>
+               <div class="place-owner-header text-center">
+                  <br>
+                  <% if @place.user.avatar %>
+                    <%= cl_image_tag @place.user.avatar.path, class: "avatar-large dropdown-toggle avatar-margin", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+                  <% elsif current_user.facebook_picture_url %>
+                    <%= cl_image_tag current_user.facebook_picture_url, class: "avatar-large dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+                  <% else %>
+                    <%= image_tag "avatardefault.png", class:"avatar-large dropdown-toggle avatar-margin", id:"navbar-wagon-menu", "data-toggle" => "dropdown" %>
+                  <% end %>
+                  <br>
+                  <p><%=@place.user.first_name %></p>
+                  <%= mail_to @place.user.email, "contact owner", class: "btn btn-warning" %>
+                </div>
+                </div>
+              <% end %>
             </div>
           </div>
         </div>
