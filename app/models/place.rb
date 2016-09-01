@@ -8,7 +8,7 @@ class Place < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: Proc.new { |a| a.address_changed? && a.latitude.nil? }
   friendly_id :name, use: :slugged
-
+  validates :description, length: { maximum: 150 }
   def non_available_day
     result = []
     result << 0 unless sunday?
