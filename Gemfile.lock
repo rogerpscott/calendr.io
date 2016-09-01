@@ -127,6 +127,7 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (5.0.5)
       railties (>= 3.2.16)
+    json (1.8.3)
     jwt (1.5.4)
     launchy (2.4.3)
       addressable (~> 2.3)
@@ -208,6 +209,11 @@ GEM
       nokogiri (~> 1.6.0)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
+    rails_real_favicon (0.0.5)
+      json (~> 1.7)
+      rails (>= 3.1)
+      rest-client (~> 2.0)
+      rubyzip (~> 1)
     railties (5.0.0.1)
       actionpack (= 5.0.0.1)
       activesupport (= 5.0.0.1)
@@ -225,6 +231,7 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
+    rubyzip (1.2.0)
     sass (3.4.22)
     sass-rails (5.0.6)
       railties (>= 4.0.0, < 6)
@@ -299,6 +306,7 @@ DEPENDENCIES
   rails (= 5.0.0.1)
   rails-assets-air-datepicker!
   rails-assets-underscore!
+  rails_real_favicon
   redis
   sass-rails
   simple_form
