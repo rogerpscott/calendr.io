@@ -64,7 +64,7 @@ class PlacesController < ApplicationController
     @place = Place.friendly.find(params[:id])
     authorize @place
     @place.destroy
-    redirect_to places_path
+    redirect_to places_path, notice: "Your place has been successfully cancelled"
   end
 
   private

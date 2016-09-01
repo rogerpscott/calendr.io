@@ -45,8 +45,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     authorize @booking
     @booking.destroy
-    flash[:success] = "Your booking has been cancelled"
-    redirect_to bookings_path
+    redirect_to bookings_path, notice: "Your booking has been successfully cancelled"
   end
 
   private
