@@ -16,7 +16,7 @@ class WhitelistsController < ApplicationController
       WhitelistMailer.invitation(@whitelist).deliver_now
       redirect_to place_whitelists_path(@place)
     else
-      redirect_to place_whitelists_path(@place), alert: "Error"
+      redirect_to place_whitelists_path(@place), alert: "Please enter a valid email"
     end
   end
 
