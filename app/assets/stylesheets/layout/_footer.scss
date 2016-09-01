@@ -1,5 +1,7 @@
 // Your footer style
 .footer {
+  position: absolute;
+  bottom: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
