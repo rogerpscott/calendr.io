@@ -1,10 +1,16 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-    <div id="background-form">
+    <div class="col-xs-12">
+      <div id="background-form" class="text-center">
+        <% if @place.photo %>
+        <%= cl_image_tag(@place.photo.path,:width=>600, :height=>360, :crop=>"thumb") %>
+        <% else %>
+        <%= image_tag 'photo1.jpg', class:"place-img-header" %>
+        <% end %>
         <h4> <%=@user.first_name%>, you were not (yet) granted access to the calendar of <%=@place.name%> :(</h4>
         <%= link_to 'Ask the owner for access', invite_path(@place), method: :put, class:"btn btn-warning" %>
       </div>
     </div>
   </div>
 </div>
+
