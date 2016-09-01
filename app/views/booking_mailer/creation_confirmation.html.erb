@@ -1,15 +1,19 @@
-<h2>Dear <%= @user.first_name %>,</h2>
-
-<p>
-  Your place <b><%= @place.name %></b>
-  received a booking from <%= @booking.user.first_name %> <%= @booking.user.last_name %> starting on <%= @booking.start_time.strftime("%d/%m/%y")%> at <%= @booking.start_time.strftime("%I:%M%p") %> up until <%= @booking.end_time.strftime("%d/%m/%y")%> at <%= @booking.end_time.strftime("%I:%M%p") %>.
-<br>
-
-  <ul>
-    <li><a href="mailto:<%= @booking.user.email %>">email <%=@booking.user.first_name%></a></li>
-    <li><%= link_to "Check your bookings", bookings_url %></li>
-    <li><%= link_to "Check your places", places_url %></li>
-  </ul>
-
-  The calendr.io team
-</p>
+<table cellspacing="0" cellpadding="0" width="600" class="w320">
+  <tr>
+    <td class="header-lg">
+      <p>Dear <%= @place.user.first_name %>,</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="free-text">
+      <span>
+        Your place <b><%= @place.name %></b> received a booking from <%= @booking.user.first_name %> <%= @booking.user.last_name %> starting on <%= @booking.start_time.strftime("%d/%m/%y")%> at <%= @booking.start_time.strftime("%I:%M%p") %> up until <%= @booking.end_time.strftime("%d/%m/%y")%> at <%= @booking.end_time.strftime("%I:%M%p") %>.
+      </span>
+      <ul style="list-style-type:none">
+        <li><a href="mailto:<%= @booking.user.email %>">email <%=@booking.user.first_name%></a></li>
+        <li><%= link_to "Check your bookings", bookings_url %></li>
+        <li><%= link_to "Check your places", places_url %></li>
+      </ul>
+    </td>
+  </tr>
+</table>
