@@ -2,8 +2,9 @@
 
 <div id="place-infos">
   <p><strong>1. Your place infos</strong></p>
-  <%= f.input :name, class: 'field' %>
+  <%= f.input :name, class: 'field', placeholder:'Your name' %>
   <%= f.input :address, class: 'field' %>
+  <%= f.input :description, class: 'field', placeholder:'Add a description'%>
   <%= f.input :latitude,as: :hidden, input_html: { id: 'latitude'} %>
   <%= f.input :longitude, as: :hidden, input_html: { id: 'longitude'} %>
   <p><strong>2. Refine location</strong></p>
