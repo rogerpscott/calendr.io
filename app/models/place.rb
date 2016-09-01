@@ -1,5 +1,6 @@
 class Place < ApplicationRecord
   extend FriendlyId
+  validates :name, presence: true
   belongs_to :user
   has_many :bookings, dependent: :destroy
   has_many :whitelists, dependent: :destroy
