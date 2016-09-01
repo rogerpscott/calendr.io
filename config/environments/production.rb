@@ -1,6 +1,6 @@
 Rails.application.configure do
-  config.action_mailer.default_url_options = { host: "http://calendrio.herokuapp.com" }
-    config.action_mailer.asset_host = 'http://calendrio.herokuapp.com'
+  config.action_mailer.default_url_options = { host: "http://www.calendr.io" }
+    config.action_mailer.asset_host = 'http://www.calendr.io'
 
   # Settings specified here will take precedence over those in config/application.rb.
 
