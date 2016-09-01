@@ -15,7 +15,7 @@
         <div class="card-links">
           <%= link_to "<i class= 'fa fa-pencil'></i>  Edit".html_safe, edit_place_path(place) %>
           <br>
-          <%= link_to "<i class= 'fa fa-trash-o'></i>  Remove".html_safe, friendly_place_path(place), method: :delete, data: { confirm: "Are you really sure you want to delete the place?" } %>
+          <%= link_to "<i class= 'fa fa-trash-o'></i>  Remove".html_safe, place_path(place), method: :delete, data: { confirm: "Are you really sure you want to delete the place?" } %>
         </div>
         <%= link_to "", friendly_place_path(place), class: "card-link" %>
       </div>
