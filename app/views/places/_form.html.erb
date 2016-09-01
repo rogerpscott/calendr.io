@@ -15,12 +15,12 @@
   <%= f.input :photo, as: :attachinary, class: 'field' %>
   <p><strong>4. Define availability</strong></p>
   <%= f.input :monday %>
-  <%= f.input :tuesday %>
-  <%= f.input :wednesday %>
-  <%= f.input :thursday %>
+  <%= f.input :tuesday, input_html: { :style => 'display: inline' } %>
+  <%= f.input :wednesday, input_html: { :style => 'display: inline' } %>
+  <%= f.input :thursday, input_html: { :style => 'display: inline' } %>
   <%= f.input :friday %>
-  <%= f.input :saturday %>
-  <%= f.input :sunday %>
+  <%= f.input :saturday, input_html: { :style => 'display: inline' } %>
+  <%= f.input :sunday, input_html: { :style => 'display: inline' } %>
 </div>
 <div id="whitelists">
   <p><strong>5. Define who can access your calendrio</strong></p>

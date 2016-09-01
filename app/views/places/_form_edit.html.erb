@@ -5,7 +5,7 @@
   <p><strong>
     1. Manage users
   </strong></p>
-  <%= link_to 'Edit who can access your calendar', place_whitelists_url(@place) %>
+  <%= link_to 'Edit who can access your calendar', place_whitelists_url(@place), class:'btn btn-warning' %>
   <p><br></p>
   <p><strong>
     2. Your place infos
@@ -39,10 +39,12 @@
   <%= f.input :friday %>
   <%= f.input :saturday %>
   <%= f.input :sunday %>
-</div>
+
 
   <h2 class="personalised-url">Personnalized URL</h2>
   <p>www.calendr.io/<%= @place.slug %></p>
 
 <%= f.button :submit, class: "btn btn-warning" %>
+
+ </div>
 
