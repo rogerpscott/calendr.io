@@ -1,11 +1,11 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-      <h2>Sign up</h2>
+  <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+      <div id="background-form">
+        <h2>Sign up</h2>
+        <%= render "devise/shared/links" %>
 
-      <%= render "devise/shared/links" %>
-
-      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= f.error_notification %>
 
         <div class="form-inputs">
@@ -15,11 +15,12 @@
           <%= f.input :avatar, as: :attachinary %>
           <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
         </div>
-
+        <br>
         <div class="form-actions">
-          <%= f.button :submit, "Sign up" %>
+          <%= f.button :submit, "Sign up", class:'btn btn-warning' %>
         </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
