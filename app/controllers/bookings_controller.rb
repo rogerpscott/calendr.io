@@ -73,6 +73,7 @@ class BookingsController < ApplicationController
   def overlaps?(place, booking)
     st = booking.start_time
     et = booking.end_time
-    !place.bookings.where(start_time: st..et).or(place.bookings.where(end_time: st..et)).count.zero?
+    !place.bookings.where("start_time < ? and end_time > ?", et, st).count.zero?
   end
+
 end
