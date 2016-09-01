@@ -78,12 +78,17 @@
 
 .place-booking-form > * {
   margin: 20px;
-  padding: 10px;
+  padding: 15px;
+}
+
+.place-booking-form {
+  background-color: white;
+  margin: 8px;
 }
 
 // SHOW PLACE
 .header-place {
-  height: 50vh;
+  height: 400px;
   color: white;
   position:relative
 }
@@ -96,12 +101,11 @@
   left:0;
   right:0;
   bottom:0;
-  filter: blur(3px);
   z-index:-1;
 }
 
 .header-item-image {
-  height: 40vh;
+  height: 360px;
 }
 
 .place-img-header {
@@ -118,10 +122,10 @@
   box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.3);
   border-radius: 0.5%;
   color: black;
-  height: 40vh;
+  height: 160px;
   padding-top: 10px;
   padding-left: 15px;
-  background-color: #F2F2F2;
+  background-color: white;
   opacity: 0.97;
   h2 {
     padding-top: 0px;
@@ -131,6 +135,12 @@
 
 .place-button-edit-header {
   position: absolute;
-  right: 35px;
-  bottom: 35px;
+  right: 20px;
+  top: 20px;
+}
+
+.place-owner-header {
+  position: absolute;
+  right: 20px;
+  top: 0px;
 }
