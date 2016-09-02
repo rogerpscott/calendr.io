@@ -1,4 +1,13 @@
 <div class="nested-fields field">
-  <%= f.input :email, label: false, placeholder: "someone_you_trust@email.com" %>
-  <%= link_to_remove_association "remove email".html_safe, f, height: '30px' %>
+  <div class="container">
+    <div class="row" style="width: 580px">
+      <div class="col-xs-8">
+        <%= f.input :email, label: false, placeholder: "someone_you_trust@email.com" %>
+      </div>
+      <div class="col-xs-4">
+        <%= link_to_remove_association "<i class='fa fa-user-times'></i> remove email".html_safe, f, height: '30px', class:"btn btn-secondary" %>
+      </div>
+    </div>
+  </div>
+
 </div>
