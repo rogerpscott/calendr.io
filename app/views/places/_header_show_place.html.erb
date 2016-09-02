@@ -47,21 +47,23 @@
                <p>Available on :<% @place.array_available_day.each do |day| %> <span class="label-day"> <%= day %> </span> <% end %></p>
               <% if @place.user == current_user %>
                 <div class="place-button-edit-header">
-                  <%= link_to "<i class= 'fa fa-pencil'></i>  Edit".html_safe, edit_place_path(@place), class: "btn btn-warning" %>
+                  <%= link_to "<i class= 'fa fa-pencil'></i> Edit  ".html_safe, edit_place_path(@place), class: "btn btn-warning" %>
+                </div>
+                <div class="place-button-invite-header">
+                  <%= link_to "<i class= 'fa fa-user-plus'></i> Send invitations".html_safe, place_whitelists_url(@place), class: "btn btn-warning" %>
                 </div>
               <% else %>
-               <div class="place-owner-header text-center">
+               <div class="place-owner-header text-right">
                   <br>
                   <% if @place.user.avatar %>
-                    <%= cl_image_tag @place.user.avatar.path, class: "avatar-large dropdown-toggle avatar-margin", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+                    <%= cl_image_tag @place.user.avatar.path, class: "avatar-large" %>
                   <% elsif current_user.facebook_picture_url %>
-                    <%= cl_image_tag current_user.facebook_picture_url, class: "avatar-large dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+                    <%= cl_image_tag current_user.facebook_picture_url, class: "avatar-large" %>
                   <% else %>
-                    <%= image_tag "avatardefault.png", class:"avatar-large dropdown-toggle avatar-margin", id:"navbar-wagon-menu", "data-toggle" => "dropdown" %>
+                    <%= image_tag "avatardefault.png", class:"avatar-large" %>
                   <% end %>
                   <br>
-                  <p><%=@place.user.first_name %></p>
-                  <%= mail_to @place.user.email, "contact owner", class: "btn btn-warning" %>
+                  <%= mail_to @place.user.email, "contact <br> #{@place.user.first_name}", class: "btn btn-warning" %>
                 </div>
                 </div>
               <% end %>
